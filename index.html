@@ -6,8 +6,8 @@
 <title>FocablyED — Focus. Track. Achieve.</title>
 <meta name="description" content="The three-way platform connecting students, parents and teachers to tackle time blindness and procrastination.">
 <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/stevothomo99-cpu/focably/main/squirrel.png">
-  <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/stevothomo99-cpu/focably/main/squirrel.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="apple-touch-icon" href="https://raw.githubusercontent.com/stevothomo99-cpu/focably/main/squirrel.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -60,13 +60,6 @@
     text-decoration: none;
   }
 
-  .nav-logo-mark {
-    width: 36px;
-    height: 36px;
-    border-radius: 10px;
-    overflow: hidden;
-  }
-
   .nav-logo-text {
     font-family: 'Fraunces', serif;
     font-weight: 700;
@@ -83,6 +76,9 @@
     padding: 10px 22px;
     border-radius: 8px;
     text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
     transition: background 0.2s;
   }
   .nav-cta:hover { background: var(--amber-light); }
@@ -106,16 +102,8 @@
     opacity: 0.12;
     pointer-events: none;
   }
-  .hero-bg-circle-1 {
-    width: 600px; height: 600px;
-    background: var(--amber);
-    top: -200px; right: -150px;
-  }
-  .hero-bg-circle-2 {
-    width: 400px; height: 400px;
-    background: var(--brown-light);
-    bottom: -100px; left: -100px;
-  }
+  .hero-bg-circle-1 { width: 600px; height: 600px; background: var(--amber); top: -200px; right: -150px; }
+  .hero-bg-circle-2 { width: 400px; height: 400px; background: var(--brown-light); bottom: -100px; left: -100px; }
 
   .hero-badge {
     display: inline-flex;
@@ -153,11 +141,7 @@
     max-width: 820px;
     margin-bottom: 24px;
   }
-
-  .hero h1 em {
-    font-style: italic;
-    color: var(--amber);
-  }
+  .hero h1 em { font-style: italic; color: var(--amber); }
 
   .hero-sub {
     font-size: clamp(16px, 2vw, 20px);
@@ -168,8 +152,7 @@
   }
 
   .hero-mascot {
-    width: 160px;
-    height: 160px;
+    width: 160px; height: 160px;
     margin-bottom: 32px;
     display: block;
     border-radius: 36px;
@@ -183,52 +166,27 @@
     50% { transform: translateY(-10px); }
   }
 
-  /* WAITLIST FORM */
-  .waitlist-form {
-    display: flex;
-    gap: 10px;
-    max-width: 480px;
-    width: 100%;
-    margin: 0 auto 16px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .waitlist-input {
-    flex: 1;
-    min-width: 240px;
-    padding: 14px 18px;
-    border: 1.5px solid rgba(123,79,46,0.2);
-    border-radius: 10px;
-    font-size: 15px;
-    font-family: 'Inter', sans-serif;
-    background: var(--white);
-    color: var(--ink);
-    outline: none;
-    transition: border-color 0.2s;
-  }
-  .waitlist-input:focus { border-color: var(--amber); }
-  .waitlist-input::placeholder { color: var(--ink-light); }
-
-  .waitlist-btn {
-    padding: 14px 28px;
+  /* HERO CTA BUTTON */
+  .hero-cta-btn {
     background: var(--ink);
     color: var(--white);
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 600;
     font-family: 'Inter', sans-serif;
+    padding: 16px 36px;
+    border-radius: 12px;
     border: none;
-    border-radius: 10px;
     cursor: pointer;
     transition: background 0.2s, transform 0.1s;
-    white-space: nowrap;
+    margin-bottom: 12px;
   }
-  .waitlist-btn:hover { background: var(--brown); }
-  .waitlist-btn:active { transform: scale(0.98); }
+  .hero-cta-btn:hover { background: var(--brown); }
+  .hero-cta-btn:active { transform: scale(0.98); }
 
   .waitlist-note {
     font-size: 13px;
     color: var(--ink-light);
+    margin-top: 8px;
   }
 
   .success-msg {
@@ -236,16 +194,17 @@
     background: var(--green-pale);
     color: var(--green);
     border: 1px solid rgba(58,107,74,0.2);
-    padding: 12px 20px;
+    padding: 14px 24px;
     border-radius: 10px;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 500;
     max-width: 480px;
     width: 100%;
     text-align: center;
+    margin: 0 auto;
   }
 
-  /* THREE-WAY SECTION */
+  /* SECTIONS */
   .section {
     padding: 100px 24px;
     max-width: 1100px;
@@ -295,203 +254,294 @@
     overflow: hidden;
     transition: transform 0.2s, box-shadow 0.2s;
   }
-  .card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 40px rgba(123,79,46,0.1);
-  }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(123,79,46,0.1); }
 
-  .card-accent {
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 4px;
-  }
+  .card-accent { position: absolute; top: 0; left: 0; right: 0; height: 4px; }
   .card-accent-amber { background: var(--amber); }
   .card-accent-brown { background: var(--brown-light); }
   .card-accent-green { background: var(--green); }
 
-  .card-icon {
-    font-size: 36px;
-    margin-bottom: 18px;
-    display: block;
-  }
-
-  .card-who {
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    color: var(--ink-light);
-    margin-bottom: 8px;
-  }
-
-  .card h3 {
-    font-family: 'Fraunces', serif;
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--ink);
-    margin-bottom: 12px;
-    line-height: 1.2;
-  }
-
-  .card p {
-    font-size: 15px;
-    color: var(--ink-light);
-    line-height: 1.65;
-  }
+  .card-icon { font-size: 36px; margin-bottom: 18px; display: block; }
+  .card-who { font-size: 11px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: var(--ink-light); margin-bottom: 8px; }
+  .card h3 { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 600; color: var(--ink); margin-bottom: 12px; line-height: 1.2; }
+  .card p { font-size: 15px; color: var(--ink-light); line-height: 1.65; }
 
   /* PROBLEM STRIP */
-  .problem-strip {
-    background: var(--ink);
-    padding: 80px 24px;
-  }
-
-  .problem-inner {
-    max-width: 900px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-  }
-
-  .problem-inner h2 {
-    font-family: 'Fraunces', serif;
-    font-size: clamp(28px, 3.5vw, 44px);
-    font-weight: 700;
-    color: var(--white);
-    line-height: 1.15;
-    letter-spacing: -1px;
-  }
-
-  .problem-inner h2 em {
-    font-style: italic;
-    color: var(--amber);
-  }
-
-  .stat-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .stat-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
-  }
-
-  .stat-num {
-    font-family: 'Fraunces', serif;
-    font-size: 36px;
-    font-weight: 700;
-    color: var(--amber);
-    line-height: 1;
-    min-width: 70px;
-  }
-
-  .stat-label {
-    font-size: 14px;
-    color: rgba(255,255,255,0.65);
-    line-height: 1.5;
-    padding-top: 4px;
-  }
+  .problem-strip { background: var(--ink); padding: 80px 24px; }
+  .problem-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .problem-inner h2 { font-family: 'Fraunces', serif; font-size: clamp(28px, 3.5vw, 44px); font-weight: 700; color: var(--white); line-height: 1.15; letter-spacing: -1px; }
+  .problem-inner h2 em { font-style: italic; color: var(--amber); }
+  .stat-list { list-style: none; display: flex; flex-direction: column; gap: 20px; }
+  .stat-item { display: flex; align-items: flex-start; gap: 16px; }
+  .stat-num { font-family: 'Fraunces', serif; font-size: 36px; font-weight: 700; color: var(--amber); line-height: 1; min-width: 70px; }
+  .stat-label { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.5; padding-top: 4px; }
 
   /* HOW IT WORKS */
-  .steps {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 32px;
-  }
-
-  .step {
-    text-align: center;
-    padding: 20px;
-  }
-
-  .step-num {
-    width: 44px; height: 44px;
-    background: var(--amber-pale);
-    border: 2px solid var(--amber);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Fraunces', serif;
-    font-weight: 700;
-    font-size: 18px;
-    color: var(--brown);
-    margin: 0 auto 16px;
-  }
-
-  .step h4 {
-    font-family: 'Fraunces', serif;
-    font-size: 18px;
-    font-weight: 600;
-    color: var(--ink);
-    margin-bottom: 8px;
-  }
-
-  .step p {
-    font-size: 14px;
-    color: var(--ink-light);
-    line-height: 1.6;
-  }
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; }
+  .step { text-align: center; padding: 20px; }
+  .step-num { width: 44px; height: 44px; background: var(--amber-pale); border: 2px solid var(--amber); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Fraunces', serif; font-weight: 700; font-size: 18px; color: var(--brown); margin: 0 auto 16px; }
+  .step h4 { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+  .step p { font-size: 14px; color: var(--ink-light); line-height: 1.6; }
 
   /* BOTTOM CTA */
-  .bottom-cta {
-    background: var(--amber-pale);
-    border-top: 1px solid rgba(232,160,32,0.2);
-    padding: 100px 24px;
-    text-align: center;
-  }
-
-  .bottom-cta h2 {
-    font-family: 'Fraunces', serif;
-    font-size: clamp(32px, 4vw, 52px);
-    font-weight: 700;
-    color: var(--ink);
-    letter-spacing: -1px;
-    margin-bottom: 16px;
-    line-height: 1.1;
-  }
-
-  .bottom-cta p {
-    font-size: 17px;
-    color: var(--ink-light);
-    margin-bottom: 40px;
-  }
+  .bottom-cta { background: var(--amber-pale); border-top: 1px solid rgba(232,160,32,0.2); padding: 100px 24px; text-align: center; }
+  .bottom-cta h2 { font-family: 'Fraunces', serif; font-size: clamp(32px, 4vw, 52px); font-weight: 700; color: var(--ink); letter-spacing: -1px; margin-bottom: 16px; line-height: 1.1; }
+  .bottom-cta p { font-size: 17px; color: var(--ink-light); margin-bottom: 40px; }
 
   /* FOOTER */
-  footer {
-    background: var(--ink);
-    padding: 32px 40px;
+  footer { background: var(--ink); padding: 32px 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  .footer-logo { font-family: 'Fraunces', serif; font-weight: 700; font-size: 18px; color: var(--white); }
+  footer p { font-size: 13px; color: rgba(255,255,255,0.4); }
+
+  /* ===================== MODAL ===================== */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(30,23,18,0.6);
+    backdrop-filter: blur(4px);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .modal-overlay.open { display: flex; }
+
+  .modal {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 560px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 32px 80px rgba(30,23,18,0.25);
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 16px; right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--ink-light);
+    cursor: pointer;
+    line-height: 1;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: background 0.15s;
+  }
+  .modal-close:hover { background: var(--cream); }
+
+  .modal-logo {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 12px;
+    gap: 10px;
+    margin-bottom: 24px;
   }
+  .modal-logo img { width: 36px; height: 36px; border-radius: 10px; object-fit: cover; }
+  .modal-logo span { font-family: 'Fraunces', serif; font-weight: 700; font-size: 18px; color: var(--ink); }
 
-  .footer-logo {
+  .modal h2 {
     font-family: 'Fraunces', serif;
+    font-size: 26px;
     font-weight: 700;
-    font-size: 18px;
-    color: var(--white);
+    color: var(--ink);
+    line-height: 1.15;
+    margin-bottom: 6px;
   }
 
-  footer p {
-    font-size: 13px;
-    color: rgba(255,255,255,0.4);
+  .modal-sub {
+    font-size: 14px;
+    color: var(--ink-light);
+    margin-bottom: 28px;
+    line-height: 1.5;
   }
+
+  /* PROGRESS BAR */
+  .modal-progress {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 28px;
+  }
+  .modal-progress-step {
+    height: 4px;
+    flex: 1;
+    border-radius: 2px;
+    background: rgba(123,79,46,0.15);
+    transition: background 0.3s;
+  }
+  .modal-progress-step.active { background: var(--amber); }
+  .modal-progress-step.done { background: var(--green); }
+
+  /* FORM FIELDS */
+  .form-group { margin-bottom: 18px; }
+  .form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink-mid);
+    margin-bottom: 6px;
+    letter-spacing: 0.2px;
+  }
+  .form-group label span.req { color: var(--amber); margin-left: 2px; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  .field-input,
+  .field-select,
+  .field-textarea {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid rgba(123,79,46,0.2);
+    border-radius: 10px;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    background: var(--white);
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .field-input:focus,
+  .field-select:focus,
+  .field-textarea:focus { border-color: var(--amber); }
+  .field-input::placeholder,
+  .field-textarea::placeholder { color: var(--ink-light); }
+  .field-select { cursor: pointer; }
+  .field-textarea { resize: vertical; min-height: 80px; line-height: 1.5; }
+
+  /* ROLE PILLS */
+  .role-pills {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .role-pill input[type="radio"] { display: none; }
+  .role-pill label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    border: 1.5px solid rgba(123,79,46,0.2);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink-mid);
+  }
+  .role-pill input[type="radio"]:checked + label {
+    border-color: var(--amber);
+    background: var(--amber-pale);
+    color: var(--ink);
+  }
+  .role-pill label .pill-icon { font-size: 20px; }
+
+  /* CHECKBOX GROUP */
+  .checkbox-group { display: flex; flex-direction: column; gap: 8px; }
+  .check-item input[type="checkbox"] { display: none; }
+  .check-item label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border: 1.5px solid rgba(123,79,46,0.15);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--ink-mid);
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .check-item input[type="checkbox"]:checked + label {
+    border-color: var(--amber);
+    background: var(--amber-pale);
+    color: var(--ink);
+  }
+  .check-box {
+    width: 18px; height: 18px;
+    border: 2px solid rgba(123,79,46,0.3);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: border-color 0.2s, background 0.2s;
+    font-size: 11px;
+  }
+  .check-item input[type="checkbox"]:checked + label .check-box {
+    background: var(--amber);
+    border-color: var(--amber);
+    color: white;
+  }
+
+  /* CONDITIONAL FIELDS */
+  .conditional-fields { display: none; }
+  .conditional-fields.visible { display: block; }
+
+  /* STEP PANELS */
+  .form-step { display: none; }
+  .form-step.active { display: block; }
+
+  /* MODAL FOOTER BUTTONS */
+  .modal-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 28px;
+    justify-content: flex-end;
+  }
+
+  .btn-back {
+    padding: 12px 24px;
+    border: 1.5px solid rgba(123,79,46,0.2);
+    border-radius: 10px;
+    background: none;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    color: var(--ink-mid);
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .btn-back:hover { background: var(--cream); }
+
+  .btn-next, .btn-submit {
+    padding: 12px 28px;
+    background: var(--ink);
+    color: var(--white);
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    flex: 1;
+  }
+  .btn-next:hover, .btn-submit:hover { background: var(--brown); }
+  .btn-next:active, .btn-submit:active { transform: scale(0.98); }
+  .btn-submit { background: var(--green); }
+  .btn-submit:hover { background: #2d5439; }
+
+  /* MODAL SUCCESS */
+  .modal-success {
+    display: none;
+    text-align: center;
+    padding: 20px 0;
+  }
+  .modal-success.visible { display: block; }
+  .success-icon { font-size: 64px; margin-bottom: 20px; }
+  .modal-success h3 { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 700; color: var(--ink); margin-bottom: 12px; }
+  .modal-success p { font-size: 15px; color: var(--ink-light); line-height: 1.6; max-width: 380px; margin: 0 auto; }
 
   /* RESPONSIVE */
   @media (max-width: 700px) {
     nav { padding: 14px 20px; }
     .problem-inner { grid-template-columns: 1fr; gap: 40px; }
-    .waitlist-form { flex-direction: column; }
-    .waitlist-input { min-width: unset; }
     footer { flex-direction: column; text-align: center; }
+    .modal { padding: 28px 20px; }
+    .form-row { grid-template-columns: 1fr; }
+    .role-pills { grid-template-columns: 1fr 1fr; }
+    .modal-actions { flex-direction: column; }
+    .btn-back { order: 2; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -507,7 +557,7 @@
     <img src="https://raw.githubusercontent.com/stevothomo99-cpu/focably/main/squirrel.png" alt="FocablyED" style="width:36px;height:36px;border-radius:10px;object-fit:cover;">
     <span class="nav-logo-text">FocablyED</span>
   </a>
-  <a href="#waitlist" class="nav-cta">Join waitlist</a>
+  <button class="nav-cta" onclick="openModal()">Join waitlist</button>
 </nav>
 
 <!-- HERO -->
@@ -526,13 +576,10 @@
 
   <p class="hero-sub">FocablyED connects students, parents and teachers in one place — making tasks visible, progress trackable, and accountability real.</p>
 
-  <div id="waitlist" style="width:100%; display:flex; flex-direction:column; align-items:center; gap:12px;">
-    <form class="waitlist-form" id="waitlistForm" onsubmit="handleSubmit(event)">
-      <input class="waitlist-input" type="email" placeholder="Enter your email" required id="emailInput">
-      <button class="waitlist-btn" type="submit">Get early access</button>
-    </form>
+  <div id="waitlist" style="display:flex;flex-direction:column;align-items:center;gap:12px;">
+    <button class="hero-cta-btn" onclick="openModal()">Get early access — it's free</button>
     <p class="waitlist-note">Free to join. No spam. Ever.</p>
-    <div class="success-msg" id="successMsg">🎉 You're on the list! We'll be in touch soon.</div>
+    <div class="success-msg" id="heroSuccessMsg">🎉 You're on the list! We'll be in touch soon.</div>
   </div>
 </section>
 
@@ -541,7 +588,6 @@
   <p class="section-eyebrow">Built for everyone in the room</p>
   <h2 class="section-title">One platform. Three perspectives.</h2>
   <p class="section-sub">Most school apps talk to one person. FocablyED brings the whole triangle together — so nothing falls through the cracks.</p>
-
   <div class="cards">
     <div class="card">
       <div class="card-accent card-accent-amber"></div>
@@ -593,7 +639,6 @@
   <p class="section-eyebrow">How it works</p>
   <h2 class="section-title">Simple by design.</h2>
   <p class="section-sub">Getting started takes minutes. The impact lasts all term.</p>
-
   <div class="steps">
     <div class="step">
       <div class="step-num">1</div>
@@ -622,91 +667,549 @@
 <section class="bottom-cta">
   <h2>Be first in the door.</h2>
   <p>Early access is free. Join the waitlist and help shape what FocablyED becomes.</p>
-  <form class="waitlist-form" style="margin: 0 auto;" onsubmit="handleSubmit2(event)">
-    <input class="waitlist-input" type="email" placeholder="Your email address" required id="emailInput2">
-    <button class="waitlist-btn" type="submit">Join the waitlist</button>
-  </form>
-  <div class="success-msg" id="successMsg2" style="margin: 12px auto 0;"></div>
+  <button class="hero-cta-btn" onclick="openModal()" style="margin:0 auto;display:block;">Join the waitlist</button>
+  <div class="success-msg" id="bottomSuccessMsg" style="margin:16px auto 0;">🎉 You're on the list! We'll be in touch soon.</div>
 </section>
 
 <footer>
-  <span class="footer-logo" style="display:flex;align-items:center;gap:8px;"><img src="https://raw.githubusercontent.com/stevothomo99-cpu/focably/main/squirrel.png" style="width:28px;height:28px;border-radius:7px;object-fit:cover;">FocablyED</span>
+  <span class="footer-logo" style="display:flex;align-items:center;gap:8px;">
+    <img src="https://raw.githubusercontent.com/stevothomo99-cpu/focably/main/squirrel.png" style="width:28px;height:28px;border-radius:7px;object-fit:cover;">FocablyED
+  </span>
   <p>© 2026 FocablyED. Built in Brisbane, Australia.</p>
 </footer>
+
+<!-- ===================== WAITLIST MODAL ===================== -->
+<div class="modal-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
+  <div class="modal" id="modalBox">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
+
+    <div class="modal-logo">
+      <img src="https://raw.githubusercontent.com/stevothomo99-cpu/focably/main/squirrel.png" alt="FocablyED">
+      <span>FocablyED</span>
+    </div>
+
+    <!-- PROGRESS -->
+    <div class="modal-progress" id="modalProgress">
+      <div class="modal-progress-step active" id="prog0"></div>
+      <div class="modal-progress-step" id="prog1"></div>
+      <div class="modal-progress-step" id="prog2"></div>
+    </div>
+
+    <!-- SUCCESS STATE -->
+    <div class="modal-success" id="modalSuccess">
+      <div class="success-icon">🎉</div>
+      <h3>You're on the list!</h3>
+      <p>Thanks for joining. We'll be in touch as we roll out early access — and your feedback will help shape FocablyED.</p>
+    </div>
+
+    <!-- STEP 1: Who are you? -->
+    <div class="form-step active" id="step0">
+      <h2>Join the waitlist</h2>
+      <p class="modal-sub">Tell us a little about yourself so we can make your early access count. Takes 2 minutes.</p>
+
+      <div class="form-group">
+        <label>First name <span class="req">*</span></label>
+        <input class="field-input" type="text" id="f_firstname" placeholder="e.g. Sarah" required>
+      </div>
+
+      <div class="form-group">
+        <label>Email address <span class="req">*</span></label>
+        <input class="field-input" type="email" id="f_email" placeholder="you@example.com" required>
+      </div>
+
+      <div class="form-group">
+        <label>I am a… <span class="req">*</span></label>
+        <div class="role-pills">
+          <div class="role-pill">
+            <input type="radio" name="role" id="role_parent" value="parent">
+            <label for="role_parent"><span class="pill-icon">👩‍👧</span> Parent</label>
+          </div>
+          <div class="role-pill">
+            <input type="radio" name="role" id="role_teacher" value="teacher">
+            <label for="role_teacher"><span class="pill-icon">🏫</span> Teacher</label>
+          </div>
+          <div class="role-pill">
+            <input type="radio" name="role" id="role_admin" value="school_admin">
+            <label for="role_admin"><span class="pill-icon">📋</span> School Admin</label>
+          </div>
+          <div class="role-pill">
+            <input type="radio" name="role" id="role_student" value="student">
+            <label for="role_student"><span class="pill-icon">🎒</span> Student</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn-next" onclick="goStep(1)">Next →</button>
+      </div>
+    </div>
+
+    <!-- STEP 2: Role-specific details -->
+    <div class="form-step" id="step1">
+      <h2>A little more detail</h2>
+      <p class="modal-sub">Help us understand your situation so we can prioritise the right features.</p>
+
+      <!-- PARENT fields -->
+      <div class="conditional-fields" id="fields_parent">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Number of children</label>
+            <select class="field-select" id="f_num_children">
+              <option value="">Select…</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4+">4 or more</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Child's school year(s)</label>
+            <select class="field-select" id="f_school_year">
+              <option value="">Select…</option>
+              <option value="primary">Primary (Yr 1–6)</option>
+              <option value="lower_secondary">Lower Secondary (Yr 7–9)</option>
+              <option value="upper_secondary">Upper Secondary (Yr 10–12)</option>
+              <option value="mixed">Mix of years</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Does your child have ADHD, ASD or a learning difference?</label>
+          <select class="field-select" id="f_adhd">
+            <option value="">Prefer not to say</option>
+            <option value="yes_diagnosed">Yes — diagnosed</option>
+            <option value="yes_suspected">Yes — suspected / awaiting diagnosis</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>State / Territory</label>
+          <select class="field-select" id="f_state_parent">
+            <option value="">Select…</option>
+            <option value="QLD">Queensland</option>
+            <option value="NSW">New South Wales</option>
+            <option value="VIC">Victoria</option>
+            <option value="WA">Western Australia</option>
+            <option value="SA">South Australia</option>
+            <option value="TAS">Tasmania</option>
+            <option value="ACT">ACT</option>
+            <option value="NT">Northern Territory</option>
+            <option value="NZ">New Zealand</option>
+            <option value="OTHER">Other</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- TEACHER fields -->
+      <div class="conditional-fields" id="fields_teacher">
+        <div class="form-group">
+          <label>School name</label>
+          <input class="field-input" type="text" id="f_school_name_teacher" placeholder="e.g. Brisbane State High School">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>School type</label>
+            <select class="field-select" id="f_school_type_teacher">
+              <option value="">Select…</option>
+              <option value="government">Government</option>
+              <option value="catholic">Catholic</option>
+              <option value="independent">Independent</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>State</label>
+            <select class="field-select" id="f_state_teacher">
+              <option value="">Select…</option>
+              <option value="QLD">Queensland</option>
+              <option value="NSW">New South Wales</option>
+              <option value="VIC">Victoria</option>
+              <option value="WA">Western Australia</option>
+              <option value="SA">South Australia</option>
+              <option value="TAS">Tasmania</option>
+              <option value="ACT">ACT</option>
+              <option value="NT">Northern Territory</option>
+              <option value="NZ">New Zealand</option>
+              <option value="OTHER">Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Year levels you teach</label>
+          <select class="field-select" id="f_year_levels">
+            <option value="">Select…</option>
+            <option value="primary">Primary (Yr 1–6)</option>
+            <option value="lower_secondary">Lower Secondary (Yr 7–9)</option>
+            <option value="upper_secondary">Upper Secondary (Yr 10–12)</option>
+            <option value="mixed">Mixed</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- SCHOOL ADMIN fields -->
+      <div class="conditional-fields" id="fields_school_admin">
+        <div class="form-group">
+          <label>School name</label>
+          <input class="field-input" type="text" id="f_school_name_admin" placeholder="e.g. St Laurence's College">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your role</label>
+            <select class="field-select" id="f_admin_role">
+              <option value="">Select…</option>
+              <option value="principal">Principal / Deputy Principal</option>
+              <option value="head_of_dept">Head of Department</option>
+              <option value="it_coordinator">IT Coordinator</option>
+              <option value="wellbeing">Wellbeing / SENCO</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Approx. student enrolment</label>
+            <select class="field-select" id="f_enrolment">
+              <option value="">Select…</option>
+              <option value="under_300">Under 300</option>
+              <option value="300_800">300–800</option>
+              <option value="800_plus">800+</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>School type</label>
+            <select class="field-select" id="f_school_type_admin">
+              <option value="">Select…</option>
+              <option value="government">Government</option>
+              <option value="catholic">Catholic</option>
+              <option value="independent">Independent</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>State</label>
+            <select class="field-select" id="f_state_admin">
+              <option value="">Select…</option>
+              <option value="QLD">Queensland</option>
+              <option value="NSW">New South Wales</option>
+              <option value="VIC">Victoria</option>
+              <option value="WA">Western Australia</option>
+              <option value="SA">South Australia</option>
+              <option value="TAS">Tasmania</option>
+              <option value="ACT">ACT</option>
+              <option value="NT">Northern Territory</option>
+              <option value="NZ">New Zealand</option>
+              <option value="OTHER">Other</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- STUDENT fields -->
+      <div class="conditional-fields" id="fields_student">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your year level</label>
+            <select class="field-select" id="f_student_year">
+              <option value="">Select…</option>
+              <option value="yr7">Year 7</option>
+              <option value="yr8">Year 8</option>
+              <option value="yr9">Year 9</option>
+              <option value="yr10">Year 10</option>
+              <option value="yr11">Year 11</option>
+              <option value="yr12">Year 12</option>
+              <option value="primary">Primary school</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>State</label>
+            <select class="field-select" id="f_state_student">
+              <option value="">Select…</option>
+              <option value="QLD">Queensland</option>
+              <option value="NSW">New South Wales</option>
+              <option value="VIC">Victoria</option>
+              <option value="WA">Western Australia</option>
+              <option value="SA">South Australia</option>
+              <option value="TAS">Tasmania</option>
+              <option value="ACT">ACT</option>
+              <option value="NT">Northern Territory</option>
+              <option value="NZ">New Zealand</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn-back" onclick="goStep(0)">← Back</button>
+        <button class="btn-next" onclick="goStep(2)">Next →</button>
+      </div>
+    </div>
+
+    <!-- STEP 3: Intent + source -->
+    <div class="form-step" id="step2">
+      <h2>Last few questions</h2>
+      <p class="modal-sub">This helps us build the right things first.</p>
+
+      <div class="form-group">
+        <label>What's your biggest challenge right now?</label>
+        <textarea class="field-textarea" id="f_challenge" placeholder="e.g. My son forgets assignments constantly and I only find out the night before they're due…"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Which plan interests you most?</label>
+        <div class="checkbox-group">
+          <div class="check-item">
+            <input type="checkbox" id="int_free" value="free">
+            <label for="int_free"><span class="check-box">✓</span> Free plan — basic access for families</label>
+          </div>
+          <div class="check-item">
+            <input type="checkbox" id="int_pro" value="family_pro">
+            <label for="int_pro"><span class="check-box">✓</span> Family Pro (~$9.99/mo) — full features + teacher connection</label>
+          </div>
+          <div class="check-item">
+            <input type="checkbox" id="int_school" value="school_license">
+            <label for="int_school"><span class="check-box">✓</span> School license — whole-school rollout</label>
+          </div>
+          <div class="check-item">
+            <input type="checkbox" id="int_unsure" value="not_sure">
+            <label for="int_unsure"><span class="check-box">✓</span> Not sure yet — just exploring</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>How did you hear about FocablyED?</label>
+        <select class="field-select" id="f_source">
+          <option value="">Select…</option>
+          <option value="facebook">Facebook</option>
+          <option value="instagram">Instagram</option>
+          <option value="google">Google search</option>
+          <option value="friend_family">Friend or family</option>
+          <option value="school">School / teacher</option>
+          <option value="linkedin">LinkedIn</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Phone number <span style="color:var(--ink-light);font-weight:400;">(optional — for early access calls)</span></label>
+        <input class="field-input" type="tel" id="f_phone" placeholder="e.g. 0412 345 678">
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn-back" onclick="goStep(1)">← Back</button>
+        <button class="btn-submit" id="submitBtn" onclick="handleModalSubmit()">🎉 Join the waitlist</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 <script>
   const SUPABASE_URL = 'https://mxgnrgajspprupzxaeld.supabase.co';
   const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im14Z25yZ2Fqc3BwcnVwenhhZWxkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA5OTg5MjUsImV4cCI6MjA5NjU3NDkyNX0.tpVmlTfPSR1RmqiS57xgbCIl0Cd3-kHGi7tiOzmJWfw';
+  const HUBSPOT_PORTAL_ID = '443338489';
+  const HUBSPOT_FORM_GUID = 'focably-waitlist';
 
-  async function submitToWaitlist(email) {
-    const res = await fetch(`${SUPABASE_URL}/rest/v1/waitlist`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'apikey': SUPABASE_ANON_KEY,
-        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-        'Prefer': 'return=minimal'
-      },
-      body: JSON.stringify({ email })
+  let currentStep = 0;
+  const totalSteps = 3;
+
+  function openModal() {
+    document.getElementById('modalOverlay').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('modalOverlay').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function handleOverlayClick(e) {
+    if (e.target === document.getElementById('modalOverlay')) closeModal();
+  }
+
+  function updateProgress(step) {
+    for (let i = 0; i < totalSteps; i++) {
+      const el = document.getElementById('prog' + i);
+      el.classList.remove('active', 'done');
+      if (i < step) el.classList.add('done');
+      else if (i === step) el.classList.add('active');
+    }
+  }
+
+  function goStep(step) {
+    // Validate step 0
+    if (step > 0 && currentStep === 0) {
+      const firstname = document.getElementById('f_firstname').value.trim();
+      const email = document.getElementById('f_email').value.trim();
+      const role = document.querySelector('input[name="role"]:checked');
+      if (!firstname) { alert('Please enter your first name.'); return; }
+      if (!email || !email.includes('@')) { alert('Please enter a valid email address.'); return; }
+      if (!role) { alert('Please select your role.'); return; }
+      showRoleFields(role.value);
+    }
+
+    document.getElementById('step' + currentStep).classList.remove('active');
+    currentStep = step;
+    document.getElementById('step' + currentStep).classList.add('active');
+    updateProgress(currentStep);
+    document.getElementById('modalBox').scrollTop = 0;
+  }
+
+  function showRoleFields(role) {
+    ['parent','teacher','school_admin','student'].forEach(r => {
+      const el = document.getElementById('fields_' + r);
+      if (el) el.classList.toggle('visible', r === role);
     });
-    if (!res.ok) {
-      const err = await res.json().catch(() => ({}));
-      if (err.code === '23505') return 'duplicate';
-      throw new Error('Failed to submit');
-    }
-    return 'success';
   }
 
-  async function handleSubmit(e) {
-    e.preventDefault();
-    const email = document.getElementById('emailInput').value;
-    const btn = e.target.querySelector('button');
-    btn.textContent = 'Joining...';
+  document.querySelectorAll('input[name="role"]').forEach(r => {
+    r.addEventListener('change', function() { showRoleFields(this.value); });
+  });
+
+  function getSelectedRole() {
+    const r = document.querySelector('input[name="role"]:checked');
+    return r ? r.value : '';
+  }
+
+  function getCheckedInterests() {
+    return ['int_free','int_pro','int_school','int_unsure']
+      .filter(id => document.getElementById(id).checked)
+      .map(id => document.getElementById(id).value)
+      .join(', ');
+  }
+
+  function getRoleData(role) {
+    if (role === 'parent') return {
+      num_children: document.getElementById('f_num_children').value,
+      school_year: document.getElementById('f_school_year').value,
+      adhd_flag: document.getElementById('f_adhd').value,
+      state: document.getElementById('f_state_parent').value
+    };
+    if (role === 'teacher') return {
+      school_name: document.getElementById('f_school_name_teacher').value,
+      school_type: document.getElementById('f_school_type_teacher').value,
+      year_levels: document.getElementById('f_year_levels').value,
+      state: document.getElementById('f_state_teacher').value
+    };
+    if (role === 'school_admin') return {
+      school_name: document.getElementById('f_school_name_admin').value,
+      admin_role: document.getElementById('f_admin_role').value,
+      enrolment: document.getElementById('f_enrolment').value,
+      school_type: document.getElementById('f_school_type_admin').value,
+      state: document.getElementById('f_state_admin').value
+    };
+    if (role === 'student') return {
+      student_year: document.getElementById('f_student_year').value,
+      state: document.getElementById('f_state_student').value
+    };
+    return {};
+  }
+
+  async function handleModalSubmit() {
+    const btn = document.getElementById('submitBtn');
+    const email = document.getElementById('f_email').value.trim();
+    const firstname = document.getElementById('f_firstname').value.trim();
+    const role = getSelectedRole();
+    const challenge = document.getElementById('f_challenge').value.trim();
+    const interests = getCheckedInterests();
+    const source = document.getElementById('f_source').value;
+    const phone = document.getElementById('f_phone').value.trim();
+    const roleData = getRoleData(role);
+
+    btn.textContent = 'Submitting…';
     btn.disabled = true;
+
+    // Build full payload
+    const payload = {
+      email,
+      firstname,
+      role,
+      challenge,
+      interests,
+      source,
+      phone: phone || null,
+      ...roleData,
+      submitted_at: new Date().toISOString()
+    };
+
     try {
-      const result = await submitToWaitlist(email);
-      document.getElementById('waitlistForm').style.display = 'none';
-      const msg = document.getElementById('successMsg');
-      msg.style.display = 'block';
-      msg.textContent = result === 'duplicate'
-        ? '👋 You\'re already on the list! We\'ll be in touch.'
-        : '🎉 You\'re on the list! We\'ll be in touch soon.';
-    } catch {
-      btn.textContent = 'Get early access';
+      // 1. Write to Supabase
+      const res = await fetch(`${SUPABASE_URL}/rest/v1/waitlist`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'apikey': SUPABASE_ANON_KEY,
+          'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (!res.ok) {
+        const err = await res.json().catch(() => ({}));
+        if (err.code !== '23505') throw new Error('Supabase error');
+      }
+
+      // 2. Write to HubSpot CRM via Forms API (no auth needed for free Forms API)
+      const hsProperties = [
+        { name: 'email', value: email },
+        { name: 'firstname', value: firstname },
+        { name: 'jobtitle', value: role },
+        { name: 'phone', value: phone || '' },
+        { name: 'hs_lead_status', value: 'NEW' },
+        { name: 'lifecyclestage', value: 'lead' }
+      ];
+
+      // Add role-specific company name for school contacts
+      if (roleData.school_name) {
+        hsProperties.push({ name: 'company', value: roleData.school_name });
+      }
+      if (roleData.state) {
+        hsProperties.push({ name: 'state', value: roleData.state });
+      }
+
+      // Use HubSpot Forms API (free, no auth needed)
+      await fetch(`https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/focably-waitlist`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          fields: hsProperties,
+          context: { pageUri: window.location.href, pageName: 'FocablyED Waitlist' },
+          legalConsentOptions: {
+            consent: {
+              consentToProcess: true,
+              text: 'I agree to allow FocablyED to store and process my personal data.'
+            }
+          }
+        })
+      }).catch(() => {}); // Non-blocking — Supabase is source of truth
+
+      // Show success
+      document.getElementById('modalProgress').style.display = 'none';
+      ['step0','step1','step2'].forEach(s => document.getElementById(s).classList.remove('active'));
+      document.getElementById('modalSuccess').classList.add('visible');
+
+      // Also show inline success on page
+      document.getElementById('heroSuccessMsg').style.display = 'block';
+      document.getElementById('bottomSuccessMsg').style.display = 'block';
+
+    } catch (err) {
+      btn.textContent = '🎉 Join the waitlist';
       btn.disabled = false;
       alert('Something went wrong — please try again.');
     }
   }
 
-  async function handleSubmit2(e) {
-    e.preventDefault();
-    const email = document.getElementById('emailInput2').value;
-    const btn = e.target.querySelector('button');
-    btn.textContent = 'Joining...';
-    btn.disabled = true;
-    try {
-      const result = await submitToWaitlist(email);
-      const msg = document.getElementById('successMsg2');
-      msg.style.display = 'block';
-      msg.textContent = result === 'duplicate'
-        ? '👋 You\'re already on the list!'
-        : '🎉 You\'re on the list! We\'ll be in touch soon.';
-      e.target.reset();
-    } catch {
-      btn.textContent = 'Join the waitlist';
-      btn.disabled = false;
-      alert('Something went wrong — please try again.');
-    } finally {
-      btn.disabled = false;
-    }
-  }
-
+  // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       e.preventDefault();
       const el = document.querySelector(a.getAttribute('href'));
       if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
+  });
+
+  // ESC to close modal
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeModal();
   });
 </script>
 </body>
