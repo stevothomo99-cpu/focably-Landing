@@ -548,6 +548,276 @@
     .hero-mascot, .hero-badge-dot { animation: none; }
     .card { transition: none; }
   }
+
+  /* ===================== SCREENSHOTS SECTION ===================== */
+  .screenshots-section {
+    padding: 100px 24px;
+    background: var(--ink);
+    overflow: hidden;
+  }
+
+  .screenshots-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .screenshots-section .section-eyebrow { color: var(--amber-light); }
+
+  .screenshots-section .section-title {
+    color: var(--white);
+    max-width: 700px;
+  }
+
+  .screenshots-section .section-sub {
+    color: rgba(255,255,255,0.55);
+    max-width: 520px;
+    margin-bottom: 60px;
+  }
+
+  .phone-gallery {
+    display: flex;
+    gap: 32px;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .phone-frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    flex: 0 0 auto;
+  }
+
+  .phone-frame-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--amber);
+  }
+
+  .phone-shell {
+    width: 220px;
+    background: #0d0d0d;
+    border-radius: 36px;
+    padding: 10px;
+    box-shadow:
+      0 0 0 1px rgba(255,255,255,0.08),
+      0 32px 80px rgba(0,0,0,0.6),
+      inset 0 0 0 1px rgba(255,255,255,0.04);
+    position: relative;
+  }
+
+  .phone-shell-inner {
+    border-radius: 28px;
+    overflow: hidden;
+    position: relative;
+    background: #1E1B4B;
+  }
+
+  .phone-shell img {
+    width: 100%;
+    display: block;
+    border-radius: 28px;
+  }
+
+  .phone-shell-notch {
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 80px; height: 24px;
+    background: #0d0d0d;
+    border-radius: 0 0 16px 16px;
+    z-index: 2;
+  }
+
+  /* Placeholder phone screens */
+  .phone-mockup {
+    width: 100%;
+    min-height: 420px;
+    background: var(--indigo, #1E1B4B);
+    border-radius: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 16px;
+    gap: 12px;
+  }
+
+  .phone-mockup-coming {
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+    text-align: center;
+    margin-top: 8px;
+  }
+
+  /* Featured phone — larger, centred */
+  .phone-frame.featured .phone-shell {
+    width: 260px;
+  }
+
+  .phone-frame.featured .phone-mockup {
+    min-height: 500px;
+  }
+
+  /* ===================== ABOUT SECTION ===================== */
+  .about-section {
+    padding: 100px 24px;
+    background: var(--cream);
+  }
+
+  .about-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-content .section-eyebrow { margin-bottom: 14px; }
+
+  .about-content .section-title {
+    font-size: clamp(28px, 3.5vw, 44px);
+    margin-bottom: 24px;
+  }
+
+  .about-body {
+    font-size: 16px;
+    color: var(--ink-mid);
+    line-height: 1.75;
+    margin-bottom: 20px;
+  }
+
+  .about-body strong { color: var(--ink); font-weight: 600; }
+
+  .about-founder {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 32px;
+    padding: 20px;
+    background: var(--white);
+    border: 1px solid rgba(123,79,46,0.1);
+    border-radius: var(--radius);
+  }
+
+  .about-founder-avatar {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    background: var(--amber-pale);
+    border: 2px solid var(--amber);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+
+  .about-founder-name {
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+
+  .about-founder-title {
+    font-size: 13px;
+    color: var(--ink-light);
+    line-height: 1.4;
+  }
+
+  .about-visual {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .about-squirrel-card {
+    background: var(--ink);
+    border-radius: 20px;
+    padding: 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-squirrel-card::before {
+    content: '';
+    position: absolute;
+    width: 300px; height: 300px;
+    background: var(--amber);
+    opacity: 0.06;
+    border-radius: 50%;
+    top: -100px; right: -80px;
+  }
+
+  .about-squirrel-img {
+    width: 100px; height: 100px;
+    border-radius: 24px;
+    object-fit: cover;
+    box-shadow: 0 12px 32px rgba(232,160,32,0.3);
+    margin: 0 auto 16px;
+    display: block;
+    animation: bob 3s ease-in-out infinite;
+  }
+
+  .about-squirrel-name {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 6px;
+  }
+
+  .about-squirrel-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.5;
+  }
+
+  .about-stat-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .about-stat {
+    background: var(--white);
+    border: 1px solid rgba(123,79,46,0.1);
+    border-radius: 12px;
+    padding: 18px;
+    text-align: center;
+  }
+
+  .about-stat-num {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--amber);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .about-stat-label {
+    font-size: 12px;
+    color: var(--ink-light);
+    line-height: 1.4;
+  }
+
+  @media (max-width: 800px) {
+    .about-inner { grid-template-columns: 1fr; gap: 48px; }
+    .about-visual { order: -1; }
+    .phone-frame.featured .phone-shell { width: 220px; }
+    .phone-gallery { gap: 20px; }
+  }
+
+  @media (max-width: 500px) {
+    .phone-frame:not(.featured) { display: none; }
+  }
+
 </style>
 </head>
 <body>
@@ -662,6 +932,169 @@
     </div>
   </div>
 </section>
+
+
+<!-- SCREENSHOTS SECTION -->
+<div class="screenshots-section">
+  <div class="screenshots-inner">
+    <p class="section-eyebrow">See it in action</p>
+    <h2 class="section-title">Built for real classrooms. Designed for real life.</h2>
+    <p class="section-sub">One app, three views — every person in the loop sees exactly what they need.</p>
+
+    <div class="phone-gallery">
+
+      <!-- Student mockup (placeholder) -->
+      <div class="phone-frame">
+        <span class="phone-frame-label">🎒 Student</span>
+        <div class="phone-shell">
+          <div class="phone-shell-notch"></div>
+          <div class="phone-shell-inner">
+            <div class="phone-mockup" style="background:linear-gradient(160deg,#1E1B4B 0%,#2D1B69 100%);justify-content:flex-start;padding-top:40px;">
+              <div style="width:100%;background:rgba(124,58,237,0.15);border-radius:16px;padding:16px;margin-bottom:8px;">
+                <div style="font-size:10px;color:rgba(255,255,255,0.5);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Today's Tasks</div>
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+                  <div style="width:18px;height:18px;border-radius:50%;background:#10B981;display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0;">✓</div>
+                  <div style="font-size:12px;color:#A78BFA;text-decoration:line-through;opacity:0.7;">Read Chapter 4</div>
+                </div>
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+                  <div style="width:18px;height:18px;border-radius:50%;border:2px solid rgba(255,255,255,0.2);flex-shrink:0;"></div>
+                  <div style="font-size:12px;color:white;">Maths problems ×10</div>
+                </div>
+                <div style="display:flex;align-items:center;gap:8px;">
+                  <div style="width:18px;height:18px;border-radius:50%;border:2px solid rgba(255,255,255,0.2);flex-shrink:0;"></div>
+                  <div style="font-size:12px;color:white;">Science report draft</div>
+                </div>
+              </div>
+              <div style="width:100%;background:rgba(245,158,11,0.1);border-radius:16px;padding:14px;border:1px solid rgba(245,158,11,0.2);">
+                <div style="font-size:10px;color:var(--amber-light);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;">⭐ XP Progress</div>
+                <div style="background:rgba(255,255,255,0.08);border-radius:8px;height:8px;overflow:hidden;">
+                  <div style="width:68%;height:100%;background:linear-gradient(90deg,#F59E0B,#FCD34D);border-radius:8px;"></div>
+                </div>
+                <div style="font-size:11px;color:rgba(255,255,255,0.5);margin-top:6px;">340 / 500 XP — Level 4</div>
+              </div>
+              <p class="phone-mockup-coming">Screenshots coming soon</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Teacher screenshot — REAL -->
+      <div class="phone-frame featured">
+        <span class="phone-frame-label">🏫 Teacher</span>
+        <div class="phone-shell">
+          <div class="phone-shell-notch"></div>
+          <div class="phone-shell-inner">
+            <img src="https://raw.githubusercontent.com/stevothomo99-cpu/focably-Landing/main/screenshots/teacher.png"
+                 alt="FocablyED Teacher Dashboard — class management, invite codes, assignment tracking">
+          </div>
+        </div>
+      </div>
+
+      <!-- Parent mockup (placeholder) -->
+      <div class="phone-frame">
+        <span class="phone-frame-label">👩‍👧 Parent</span>
+        <div class="phone-shell">
+          <div class="phone-shell-notch"></div>
+          <div class="phone-shell-inner">
+            <div class="phone-mockup" style="background:linear-gradient(160deg,#1E1B4B 0%,#2D1B69 100%);justify-content:flex-start;padding-top:40px;">
+              <div style="width:100%;background:rgba(16,185,129,0.1);border-radius:16px;padding:16px;margin-bottom:8px;border:1px solid rgba(16,185,129,0.2);">
+                <div style="font-size:10px;color:#6EE7B7;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;">Zoe's Progress</div>
+                <div style="display:flex;justify-content:space-between;margin-bottom:10px;">
+                  <div style="text-align:center;">
+                    <div style="font-size:20px;font-weight:700;color:white;">3</div>
+                    <div style="font-size:10px;color:rgba(255,255,255,0.4);">Due today</div>
+                  </div>
+                  <div style="text-align:center;">
+                    <div style="font-size:20px;font-weight:700;color:#10B981;">2</div>
+                    <div style="font-size:10px;color:rgba(255,255,255,0.4);">Done</div>
+                  </div>
+                  <div style="text-align:center;">
+                    <div style="font-size:20px;font-weight:700;color:#F59E0B;">1</div>
+                    <div style="font-size:10px;color:rgba(255,255,255,0.4);">Overdue</div>
+                  </div>
+                </div>
+                <div style="background:rgba(255,255,255,0.08);border-radius:8px;height:6px;overflow:hidden;">
+                  <div style="width:66%;height:100%;background:linear-gradient(90deg,#10B981,#6EE7B7);border-radius:8px;"></div>
+                </div>
+              </div>
+              <div style="width:100%;background:rgba(255,255,255,0.05);border-radius:16px;padding:14px;">
+                <div style="font-size:10px;color:rgba(255,255,255,0.4);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;">Recent Activity</div>
+                <div style="font-size:12px;color:rgba(255,255,255,0.7);margin-bottom:6px;">✅ Completed: Maths problems</div>
+                <div style="font-size:12px;color:rgba(255,255,255,0.5);">⏰ Due Fri: Science report</div>
+              </div>
+              <p class="phone-mockup-coming">Screenshots coming soon</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT SECTION -->
+<section class="about-section">
+  <div class="about-inner">
+    <div class="about-content">
+      <p class="section-eyebrow">Our story</p>
+      <h2 class="section-title">Built by a parent who gets it.</h2>
+
+      <p class="about-body">
+        FocablyED started with a squirrel — and a lot of frustration.
+      </p>
+      <p class="about-body">
+        <strong>Steve Thomas</strong> is a Brisbane-based CFO and father of two daughters — Zoe (15, ADHD) and Georgie (13). Watching Zoe struggle with time blindness, forgotten assignments, and the gap between what her teachers knew and what he knew as a parent, he kept searching for an app that connected all three sides of the triangle.
+      </p>
+      <p class="about-body">
+        It didn't exist. So he built one.
+      </p>
+      <p class="about-body">
+        FocablyED isn't built by developers guessing at what students need. The mascot — a squirrel 🐿️ — was named by Zoe herself, inspired by Doug the dog from Pixar's UP (<em>"SQUIRREL!"</em>). It perfectly captures what it feels like to have ADHD and try to stay on task.
+      </p>
+      <p class="about-body">
+        The platform brings students, parents and teachers into one shared view — so tasks don't fall through the cracks, parents don't have to nag, and teachers can see who needs help before it becomes a crisis.
+      </p>
+
+      <div class="about-founder">
+        <div class="about-founder-avatar">👨‍💼</div>
+        <div>
+          <div class="about-founder-name">Steve Thomas</div>
+          <div class="about-founder-title">Founder, FocablyED · CA-qualified CFO · Dad of two · Brisbane, QLD</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-visual">
+      <div class="about-squirrel-card">
+        <img class="about-squirrel-img"
+             src="https://raw.githubusercontent.com/stevothomo99-cpu/focably/main/squirrel.png"
+             alt="FocablyED mascot squirrel">
+        <div class="about-squirrel-name">Meet our mascot 🐿️</div>
+        <div class="about-squirrel-sub">Named by Zoe, 15 — inspired by Doug from Pixar's UP.<br>Because sometimes focus is the whole battle.</div>
+      </div>
+
+      <div class="about-stat-row">
+        <div class="about-stat">
+          <div class="about-stat-num">1 in 7</div>
+          <div class="about-stat-label">students affected by ADHD or time blindness</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">3-way</div>
+          <div class="about-stat-label">connection — student, parent and teacher</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">Free</div>
+          <div class="about-stat-label">to get started — no credit card needed</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">🇦🇺</div>
+          <div class="about-stat-label">Built in Brisbane for Australian classrooms</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <!-- BOTTOM CTA -->
 <section class="bottom-cta">
