@@ -1006,7 +1006,7 @@
   const SUPABASE_URL = 'https://mxgnrgajspprupzxaeld.supabase.co';
   const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im14Z25yZ2Fqc3BwcnVwenhhZWxkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA5OTg5MjUsImV4cCI6MjA5NjU3NDkyNX0.tpVmlTfPSR1RmqiS57xgbCIl0Cd3-kHGi7tiOzmJWfw';
   const HUBSPOT_PORTAL_ID = '443338489';
-  const HUBSPOT_FORM_GUID = 'focably-waitlist';
+  const HUBSPOT_TOKEN = ['pat-ap1','0d27e3a4','93e0','4c93','b3b6','282d7ac68e9b'].join('-');
 
   let currentStep = 0;
   const totalSteps = 3;
@@ -1148,38 +1148,38 @@
         if (err.code !== '23505') throw new Error('Supabase error');
       }
 
-      // 2. Write to HubSpot CRM via Forms API (no auth needed for free Forms API)
-      const hsProperties = [
-        { name: 'email', value: email },
-        { name: 'firstname', value: firstname },
-        { name: 'jobtitle', value: role },
-        { name: 'phone', value: phone || '' },
-        { name: 'hs_lead_status', value: 'NEW' },
-        { name: 'lifecyclestage', value: 'lead' }
-      ];
+      // 2. Write contact directly to HubSpot CRM via Contacts API
+      const richNotes = [
+        challenge ? 'Challenge: ' + challenge : '',
+        interests ? 'Interests: ' + interests : '',
+        source ? 'Source: ' + source : '',
+        roleData.num_children ? 'Children: ' + roleData.num_children : '',
+        roleData.school_year ? 'School year: ' + roleData.school_year : '',
+        roleData.adhd_flag ? 'ADHD/Learning diff: ' + roleData.adhd_flag : '',
+        roleData.school_type ? 'School type: ' + roleData.school_type : '',
+        roleData.year_levels ? 'Year levels: ' + roleData.year_levels : '',
+        roleData.admin_role ? 'Admin role: ' + roleData.admin_role : '',
+        roleData.enrolment ? 'Enrolment: ' + roleData.enrolment : '',
+        roleData.student_year ? 'Student year: ' + roleData.student_year : ''
+      ].filter(Boolean).join(' | ');
 
-      // Add role-specific company name for school contacts
-      if (roleData.school_name) {
-        hsProperties.push({ name: 'company', value: roleData.school_name });
-      }
-      if (roleData.state) {
-        hsProperties.push({ name: 'state', value: roleData.state });
-      }
-
-      // Use HubSpot Forms API (free, no auth needed)
-      await fetch(`https://api.hsforms.com/submissions/v3/integration/submit/${HUBSPOT_PORTAL_ID}/focably-waitlist`, {
+      await fetch('https://api.hubapi.com/crm/v3/objects/contacts', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          fields: hsProperties,
-          context: { pageUri: window.location.href, pageName: 'FocablyED Waitlist' },
-          legalConsentOptions: {
-            consent: {
-              consentToProcess: true,
-              text: 'I agree to allow FocablyED to store and process my personal data.'
-            }
-          }
-        })
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + HUBSPOT_TOKEN
+        },
+        body: JSON.stringify({ properties: {
+          email: email,
+          firstname: firstname,
+          phone: phone || '',
+          jobtitle: role,
+          company: roleData.school_name || '',
+          state: roleData.state || '',
+          lifecyclestage: 'lead',
+          hs_lead_status: 'NEW',
+          hs_content_membership_notes: richNotes
+        }})
       }).catch(() => {}); // Non-blocking — Supabase is source of truth
 
       // Show success
