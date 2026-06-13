@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FocablyED — Focus. Track. Achieve.</title>
+<meta name="description" content="The three-way platform connecting students, parents and teachers to tackle time blindness and procrastination.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --amber:     #E8A020;
+    --amber-light: #F5C15A;
+    --amber-pale:  #FEF3DC;
+    --brown:     #7B4F2E;
+    --brown-light: #C4894A;
+    --cream:     #FBF7F0;
+    --ink:       #1E1712;
+    --ink-mid:   #4A3728;
+    --ink-light: #8C7060;
+    --white:     #FFFFFF;
+    --green:     #3A6B4A;
+    --green-pale:#EAF3ED;
+    --radius:    14px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 40px;
+    background: rgba(251,247,240,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(123,79,46,0.08);
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .nav-logo-mark {
+    width: 36px;
+    height: 36px;
+    background: var(--amber);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+  }
+
+  .nav-logo-text {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--ink);
+    letter-spacing: -0.3px;
+  }
+
+  .nav-cta {
+    background: var(--amber);
+    color: var(--ink);
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--amber-light); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 24px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg-circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.12;
+    pointer-events: none;
+  }
+  .hero-bg-circle-1 {
+    width: 600px; height: 600px;
+    background: var(--amber);
+    top: -200px; right: -150px;
+  }
+  .hero-bg-circle-2 {
+    width: 400px; height: 400px;
+    background: var(--brown-light);
+    bottom: -100px; left: -100px;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--amber-pale);
+    border: 1px solid rgba(232,160,32,0.3);
+    color: var(--brown);
+    font-size: 13px;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 28px;
+  }
+
+  .hero-badge-dot {
+    width: 7px; height: 7px;
+    background: var(--amber);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(44px, 7vw, 84px);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -2px;
+    color: var(--ink);
+    max-width: 820px;
+    margin-bottom: 24px;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--amber);
+  }
+
+  .hero-sub {
+    font-size: clamp(16px, 2vw, 20px);
+    color: var(--ink-light);
+    max-width: 540px;
+    margin-bottom: 48px;
+    line-height: 1.6;
+  }
+
+  .hero-mascot {
+    font-size: 100px;
+    margin-bottom: 32px;
+    display: block;
+    animation: bob 3s ease-in-out infinite;
+  }
+
+  @keyframes bob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  /* WAITLIST FORM */
+  .waitlist-form {
+    display: flex;
+    gap: 10px;
+    max-width: 480px;
+    width: 100%;
+    margin: 0 auto 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .waitlist-input {
+    flex: 1;
+    min-width: 240px;
+    padding: 14px 18px;
+    border: 1.5px solid rgba(123,79,46,0.2);
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: 'Inter', sans-serif;
+    background: var(--white);
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .waitlist-input:focus { border-color: var(--amber); }
+  .waitlist-input::placeholder { color: var(--ink-light); }
+
+  .waitlist-btn {
+    padding: 14px 28px;
+    background: var(--ink);
+    color: var(--white);
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    white-space: nowrap;
+  }
+  .waitlist-btn:hover { background: var(--brown); }
+  .waitlist-btn:active { transform: scale(0.98); }
+
+  .waitlist-note {
+    font-size: 13px;
+    color: var(--ink-light);
+  }
+
+  .success-msg {
+    display: none;
+    background: var(--green-pale);
+    color: var(--green);
+    border: 1px solid rgba(58,107,74,0.2);
+    padding: 12px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    max-width: 480px;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* THREE-WAY SECTION */
+  .section {
+    padding: 100px 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 14px;
+  }
+
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    color: var(--ink);
+    max-width: 600px;
+    margin-bottom: 16px;
+  }
+
+  .section-sub {
+    font-size: 17px;
+    color: var(--ink-light);
+    max-width: 500px;
+    margin-bottom: 56px;
+    line-height: 1.65;
+  }
+
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .card {
+    background: var(--white);
+    border: 1px solid rgba(123,79,46,0.1);
+    border-radius: var(--radius);
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(123,79,46,0.1);
+  }
+
+  .card-accent {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+  }
+  .card-accent-amber { background: var(--amber); }
+  .card-accent-brown { background: var(--brown-light); }
+  .card-accent-green { background: var(--green); }
+
+  .card-icon {
+    font-size: 36px;
+    margin-bottom: 18px;
+    display: block;
+  }
+
+  .card-who {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 8px;
+  }
+
+  .card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+
+  .card p {
+    font-size: 15px;
+    color: var(--ink-light);
+    line-height: 1.65;
+  }
+
+  /* PROBLEM STRIP */
+  .problem-strip {
+    background: var(--ink);
+    padding: 80px 24px;
+  }
+
+  .problem-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .problem-inner h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    letter-spacing: -1px;
+  }
+
+  .problem-inner h2 em {
+    font-style: italic;
+    color: var(--amber);
+  }
+
+  .stat-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .stat-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .stat-num {
+    font-family: 'Fraunces', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--amber);
+    line-height: 1;
+    min-width: 70px;
+  }
+
+  .stat-label {
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.5;
+    padding-top: 4px;
+  }
+
+  /* HOW IT WORKS */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 32px;
+  }
+
+  .step {
+    text-align: center;
+    padding: 20px;
+  }
+
+  .step-num {
+    width: 44px; height: 44px;
+    background: var(--amber-pale);
+    border: 2px solid var(--amber);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--brown);
+    margin: 0 auto 16px;
+  }
+
+  .step h4 {
+    font-family: 'Fraunces', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .step p {
+    font-size: 14px;
+    color: var(--ink-light);
+    line-height: 1.6;
+  }
+
+  /* BOTTOM CTA */
+  .bottom-cta {
+    background: var(--amber-pale);
+    border-top: 1px solid rgba(232,160,32,0.2);
+    padding: 100px 24px;
+    text-align: center;
+  }
+
+  .bottom-cta h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+    line-height: 1.1;
+  }
+
+  .bottom-cta p {
+    font-size: 17px;
+    color: var(--ink-light);
+    margin-bottom: 40px;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    padding: 32px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .footer-logo {
+    font-family: 'Fraunces', serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--white);
+  }
+
+  footer p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    nav { padding: 14px 20px; }
+    .problem-inner { grid-template-columns: 1fr; gap: 40px; }
+    .waitlist-form { flex-direction: column; }
+    .waitlist-input { min-width: unset; }
+    footer { flex-direction: column; text-align: center; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-mascot, .hero-badge-dot { animation: none; }
+    .card { transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-mark">🐿️</div>
+    <span class="nav-logo-text">FocablyED</span>
+  </a>
+  <a href="#waitlist" class="nav-cta">Join waitlist</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-circle hero-bg-circle-1"></div>
+  <div class="hero-bg-circle hero-bg-circle-2"></div>
+
+  <div class="hero-badge">
+    <span class="hero-badge-dot"></span>
+    Now taking early access signups
+  </div>
+
+  <span class="hero-mascot">🐿️</span>
+
+  <h1>Stop losing track.<br><em>Start showing up.</em></h1>
+
+  <p class="hero-sub">FocablyED connects students, parents and teachers in one place — making tasks visible, progress trackable, and accountability real.</p>
+
+  <div id="waitlist" style="width:100%; display:flex; flex-direction:column; align-items:center; gap:12px;">
+    <form class="waitlist-form" id="waitlistForm" onsubmit="handleSubmit(event)">
+      <input class="waitlist-input" type="email" placeholder="Enter your email" required id="emailInput">
+      <button class="waitlist-btn" type="submit">Get early access</button>
+    </form>
+    <p class="waitlist-note">Free to join. No spam. Ever.</p>
+    <div class="success-msg" id="successMsg">🎉 You're on the list! We'll be in touch soon.</div>
+  </div>
+</section>
+
+<!-- THREE-WAY -->
+<section class="section">
+  <p class="section-eyebrow">Built for everyone in the room</p>
+  <h2 class="section-title">One platform. Three perspectives.</h2>
+  <p class="section-sub">Most school apps talk to one person. FocablyED brings the whole triangle together — so nothing falls through the cracks.</p>
+
+  <div class="cards">
+    <div class="card">
+      <div class="card-accent card-accent-amber"></div>
+      <span class="card-icon">🎒</span>
+      <p class="card-who">For students</p>
+      <h3>Your tasks, broken down</h3>
+      <p>See exactly what needs doing, when it's due, and how to start. No more staring at the ceiling wondering where to begin.</p>
+    </div>
+    <div class="card">
+      <div class="card-accent card-accent-brown"></div>
+      <span class="card-icon">👩‍👧</span>
+      <p class="card-who">For parents</p>
+      <h3>Real visibility, not nagging</h3>
+      <p>See your child's workload, track what's been done, and get notified when tasks are completed — without having to ask.</p>
+    </div>
+    <div class="card">
+      <div class="card-accent card-accent-green"></div>
+      <span class="card-icon">🏫</span>
+      <p class="card-who">For teachers</p>
+      <h3>Know who's keeping up</h3>
+      <p>Assign tasks, approve completions, and spot who's falling behind before it becomes a problem. Less admin, more impact.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM STRIP -->
+<div class="problem-strip">
+  <div class="problem-inner">
+    <h2>ADHD and time blindness affect <em>1 in 7</em> students. Most apps ignore it.</h2>
+    <ul class="stat-list">
+      <li class="stat-item">
+        <span class="stat-num">72%</span>
+        <span class="stat-label">of students say they don't know where to start on assignments</span>
+      </li>
+      <li class="stat-item">
+        <span class="stat-num">68%</span>
+        <span class="stat-label">of parents feel out of the loop on their child's school workload</span>
+      </li>
+      <li class="stat-item">
+        <span class="stat-num">1 app</span>
+        <span class="stat-label">that finally connects all three — student, parent, teacher</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="section">
+  <p class="section-eyebrow">How it works</p>
+  <h2 class="section-title">Simple by design.</h2>
+  <p class="section-sub">Getting started takes minutes. The impact lasts all term.</p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h4>Teacher sets tasks</h4>
+      <p>Assign work with due dates and breakdown steps. Students see it instantly.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h4>Student completes</h4>
+      <p>Tick off tasks as they go. Gamified progress keeps motivation high.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h4>Parent stays informed</h4>
+      <p>Real-time visibility into what's done, what's due, and what needs attention.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <h4>Everyone stays aligned</h4>
+      <p>No more crossed wires. One source of truth for the whole school journey.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="bottom-cta">
+  <h2>Be first in the door.</h2>
+  <p>Early access is free. Join the waitlist and help shape what FocablyED becomes.</p>
+  <form class="waitlist-form" style="margin: 0 auto;" onsubmit="handleSubmit2(event)">
+    <input class="waitlist-input" type="email" placeholder="Your email address" required id="emailInput2">
+    <button class="waitlist-btn" type="submit">Join the waitlist</button>
+  </form>
+  <div class="success-msg" id="successMsg2" style="margin: 12px auto 0;"></div>
+</section>
+
+<footer>
+  <span class="footer-logo">FocablyED 🐿️</span>
+  <p>© 2026 FocablyED. Built in Brisbane, Australia.</p>
+</footer>
+
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    const email = document.getElementById('emailInput').value;
+    document.getElementById('waitlistForm').style.display = 'none';
+    const msg = document.getElementById('successMsg');
+    msg.style.display = 'block';
+    msg.textContent = '🎉 You\'re on the list, ' + email + '! We\'ll be in touch.';
+  }
+
+  function handleSubmit2(e) {
+    e.preventDefault();
+    const msg = document.getElementById('successMsg2');
+    msg.style.display = 'block';
+    msg.textContent = '🎉 You\'re on the list! We\'ll be in touch soon.';
+    e.target.reset();
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const el = document.querySelector(a.getAttribute('href'));
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  });
+</script>
+</body>
+</html>
