@@ -654,14 +654,7 @@
     margin-top: 8px;
   }
 
-  /* Featured phone — larger, centred */
-  .phone-frame.featured .phone-shell {
-    width: 260px;
-  }
-
-  .phone-frame.featured .phone-mockup {
-    min-height: 500px;
-  }
+  /* All phones same size */
 
   /* ===================== ABOUT SECTION ===================== */
   .about-section {
@@ -810,12 +803,13 @@
   @media (max-width: 800px) {
     .about-inner { grid-template-columns: 1fr; gap: 48px; }
     .about-visual { order: -1; }
-    .phone-frame.featured .phone-shell { width: 220px; }
-    .phone-gallery { gap: 20px; }
+    .phone-shell { width: 180px; }
+    .phone-gallery { gap: 16px; }
   }
 
   @media (max-width: 500px) {
-    .phone-frame:not(.featured) { display: none; }
+    .phone-shell { width: 160px; }
+    .phone-gallery { gap: 12px; }
   }
 
 </style>
@@ -943,87 +937,52 @@
 
     <div class="phone-gallery">
 
-      <!-- Student mockup (placeholder) -->
       <div class="phone-frame">
-        <span class="phone-frame-label">🎒 Student</span>
+        <span class="phone-frame-label">🔐 Sign In</span>
         <div class="phone-shell">
           <div class="phone-shell-notch"></div>
           <div class="phone-shell-inner">
-            <div class="phone-mockup" style="background:linear-gradient(160deg,#1E1B4B 0%,#2D1B69 100%);justify-content:flex-start;padding-top:40px;">
-              <div style="width:100%;background:rgba(124,58,237,0.15);border-radius:16px;padding:16px;margin-bottom:8px;">
-                <div style="font-size:10px;color:rgba(255,255,255,0.5);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;">Today's Tasks</div>
-                <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
-                  <div style="width:18px;height:18px;border-radius:50%;background:#10B981;display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0;">✓</div>
-                  <div style="font-size:12px;color:#A78BFA;text-decoration:line-through;opacity:0.7;">Read Chapter 4</div>
-                </div>
-                <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
-                  <div style="width:18px;height:18px;border-radius:50%;border:2px solid rgba(255,255,255,0.2);flex-shrink:0;"></div>
-                  <div style="font-size:12px;color:white;">Maths problems ×10</div>
-                </div>
-                <div style="display:flex;align-items:center;gap:8px;">
-                  <div style="width:18px;height:18px;border-radius:50%;border:2px solid rgba(255,255,255,0.2);flex-shrink:0;"></div>
-                  <div style="font-size:12px;color:white;">Science report draft</div>
-                </div>
-              </div>
-              <div style="width:100%;background:rgba(245,158,11,0.1);border-radius:16px;padding:14px;border:1px solid rgba(245,158,11,0.2);">
-                <div style="font-size:10px;color:var(--amber-light);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;">⭐ XP Progress</div>
-                <div style="background:rgba(255,255,255,0.08);border-radius:8px;height:8px;overflow:hidden;">
-                  <div style="width:68%;height:100%;background:linear-gradient(90deg,#F59E0B,#FCD34D);border-radius:8px;"></div>
-                </div>
-                <div style="font-size:11px;color:rgba(255,255,255,0.5);margin-top:6px;">340 / 500 XP — Level 4</div>
-              </div>
-              <p class="phone-mockup-coming">Screenshots coming soon</p>
-            </div>
+            <img src="https://raw.githubusercontent.com/stevothomo99-cpu/focably-Landing/main/screenshots/login.png" alt="FocablyED sign in screen">
           </div>
         </div>
       </div>
 
-      <!-- Teacher screenshot — REAL -->
-      <div class="phone-frame featured">
-        <span class="phone-frame-label">🏫 Teacher</span>
+      <div class="phone-frame">
+        <span class="phone-frame-label">👩‍👧 Parent Dashboard</span>
         <div class="phone-shell">
           <div class="phone-shell-notch"></div>
           <div class="phone-shell-inner">
-            <img src="https://raw.githubusercontent.com/stevothomo99-cpu/focably-Landing/main/screenshots/teacher.png"
-                 alt="FocablyED Teacher Dashboard — class management, invite codes, assignment tracking">
+            <img src="https://raw.githubusercontent.com/stevothomo99-cpu/focably-Landing/main/screenshots/parent.png" alt="FocablyED parent dashboard — task progress, streak, trust score">
           </div>
         </div>
       </div>
 
-      <!-- Parent mockup (placeholder) -->
       <div class="phone-frame">
-        <span class="phone-frame-label">👩‍👧 Parent</span>
+        <span class="phone-frame-label">🏫 Teacher View</span>
         <div class="phone-shell">
           <div class="phone-shell-notch"></div>
           <div class="phone-shell-inner">
-            <div class="phone-mockup" style="background:linear-gradient(160deg,#1E1B4B 0%,#2D1B69 100%);justify-content:flex-start;padding-top:40px;">
-              <div style="width:100%;background:rgba(16,185,129,0.1);border-radius:16px;padding:16px;margin-bottom:8px;border:1px solid rgba(16,185,129,0.2);">
-                <div style="font-size:10px;color:#6EE7B7;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;">Zoe's Progress</div>
-                <div style="display:flex;justify-content:space-between;margin-bottom:10px;">
-                  <div style="text-align:center;">
-                    <div style="font-size:20px;font-weight:700;color:white;">3</div>
-                    <div style="font-size:10px;color:rgba(255,255,255,0.4);">Due today</div>
-                  </div>
-                  <div style="text-align:center;">
-                    <div style="font-size:20px;font-weight:700;color:#10B981;">2</div>
-                    <div style="font-size:10px;color:rgba(255,255,255,0.4);">Done</div>
-                  </div>
-                  <div style="text-align:center;">
-                    <div style="font-size:20px;font-weight:700;color:#F59E0B;">1</div>
-                    <div style="font-size:10px;color:rgba(255,255,255,0.4);">Overdue</div>
-                  </div>
-                </div>
-                <div style="background:rgba(255,255,255,0.08);border-radius:8px;height:6px;overflow:hidden;">
-                  <div style="width:66%;height:100%;background:linear-gradient(90deg,#10B981,#6EE7B7);border-radius:8px;"></div>
-                </div>
-              </div>
-              <div style="width:100%;background:rgba(255,255,255,0.05);border-radius:16px;padding:14px;">
-                <div style="font-size:10px;color:rgba(255,255,255,0.4);font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;">Recent Activity</div>
-                <div style="font-size:12px;color:rgba(255,255,255,0.7);margin-bottom:6px;">✅ Completed: Maths problems</div>
-                <div style="font-size:12px;color:rgba(255,255,255,0.5);">⏰ Due Fri: Science report</div>
-              </div>
-              <p class="phone-mockup-coming">Screenshots coming soon</p>
-            </div>
+            <img src="https://raw.githubusercontent.com/stevothomo99-cpu/focably-Landing/main/screenshots/teacher.png" alt="FocablyED teacher dashboard — classes, invite codes, assignments">
+          </div>
+        </div>
+      </div>
+
+      <div class="phone-frame">
+        <span class="phone-frame-label">📝 New Assignment</span>
+        <div class="phone-shell">
+          <div class="phone-shell-notch"></div>
+          <div class="phone-shell-inner">
+            <img src="https://raw.githubusercontent.com/stevothomo99-cpu/focably-Landing/main/screenshots/teacher-assign.png" alt="FocablyED create assignment — AI step generation">
+          </div>
+        </div>
+      </div>
+
+      <div class="phone-frame">
+        <span class="phone-frame-label">🏫 Join a Class</span>
+        <div class="phone-shell">
+          <div class="phone-shell-notch"></div>
+          <div class="phone-shell-inner">
+            <img src="https://raw.githubusercontent.com/stevothomo99-cpu/focably-Landing/main/screenshots/parent-join.png" alt="FocablyED join class with invite code">
           </div>
         </div>
       </div>
