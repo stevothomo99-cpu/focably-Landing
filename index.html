@@ -14,27 +14,38 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --amber:     #E8A020;
-    --amber-light: #F5C15A;
-    --amber-pale:  #FEF3DC;
-    --brown:     #7B4F2E;
-    --brown-light: #C4894A;
-    --cream:     #FBF7F0;
-    --ink:       #1E1712;
-    --ink-mid:   #4A3728;
-    --ink-light: #8C7060;
-    --white:     #FFFFFF;
-    --green:     #3A6B4A;
-    --green-pale:#EAF3ED;
-    --radius:    14px;
+    /* === App-matched brand palette === */
+    --indigo:      #1E1B4B;
+    --indigo-deep: #0F172A;
+    --indigo-mid:  #2D1B69;
+    --violet:      #7C3AED;
+    --violet-dark: #5B21B6;
+    --violet-light:#A78BFA;
+    --mint:        #10B981;
+    --mint-dark:   #059669;
+    --mint-light:  #6EE7B7;
+    --amber:       #F59E0B;
+    --amber-light: #FCD34D;
+    --rose:        #F43F5E;
+    --gray-50:     #F8F7FF;
+    --gray-100:    #EDE9FE;
+    --gray-200:    #DDD6FE;
+    --white:       #FFFFFF;
+    --ink:         #0F172A;
+    --ink-mid:     #1E1B4B;
+    --ink-light:   #64748B;
+    /* Semantic aliases */
+    --cream:       #F8F7FF;
+    --bg-page:     #0F172A;
+    --radius:      14px;
   }
 
   html { scroll-behavior: smooth; }
 
   body {
     font-family: 'Inter', sans-serif;
-    background: var(--cream);
-    color: var(--ink);
+    background: var(--bg-page);
+    color: var(--white);
     line-height: 1.6;
     overflow-x: hidden;
   }
@@ -48,9 +59,9 @@
     align-items: center;
     justify-content: space-between;
     padding: 16px 40px;
-    background: rgba(251,247,240,0.92);
+    background: rgba(15,23,42,0.92);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(123,79,46,0.08);
+    border-bottom: 1px solid rgba(124,58,237,0.15);
   }
 
   .nav-logo {
@@ -64,13 +75,13 @@
     font-family: 'Fraunces', serif;
     font-weight: 700;
     font-size: 20px;
-    color: var(--ink);
+    color: var(--white);
     letter-spacing: -0.3px;
   }
 
   .nav-cta {
-    background: var(--amber);
-    color: var(--ink);
+    background: var(--violet);
+    color: var(--white);
     font-weight: 600;
     font-size: 14px;
     padding: 10px 22px;
@@ -81,7 +92,7 @@
     font-family: 'Inter', sans-serif;
     transition: background 0.2s;
   }
-  .nav-cta:hover { background: var(--amber-light); }
+  .nav-cta:hover { background: var(--violet-light); }
 
   /* HERO */
   .hero {
@@ -94,6 +105,7 @@
     padding: 120px 24px 80px;
     position: relative;
     overflow: hidden;
+    background: linear-gradient(160deg, var(--indigo) 0%, #2D1B69 100%);
   }
 
   .hero-bg-circle {
@@ -102,16 +114,16 @@
     opacity: 0.12;
     pointer-events: none;
   }
-  .hero-bg-circle-1 { width: 600px; height: 600px; background: var(--amber); top: -200px; right: -150px; }
-  .hero-bg-circle-2 { width: 400px; height: 400px; background: var(--brown-light); bottom: -100px; left: -100px; }
+  .hero-bg-circle-1 { width: 600px; height: 600px; background: var(--violet); top: -200px; right: -150px; }
+  .hero-bg-circle-2 { width: 400px; height: 400px; background: var(--violet-light); bottom: -100px; left: -100px; }
 
   .hero-badge {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: var(--amber-pale);
-    border: 1px solid rgba(232,160,32,0.3);
-    color: var(--brown);
+    background: rgba(124,58,237,0.1);
+    border: 1px solid rgba(245,158,11,0.3);
+    color: var(--violet-light);
     font-size: 13px;
     font-weight: 500;
     padding: 6px 14px;
@@ -121,7 +133,7 @@
 
   .hero-badge-dot {
     width: 7px; height: 7px;
-    background: var(--amber);
+    background: var(--violet);
     border-radius: 50%;
     animation: pulse 2s infinite;
   }
@@ -137,7 +149,7 @@
     font-weight: 700;
     line-height: 1.05;
     letter-spacing: -2px;
-    color: var(--ink);
+    color: var(--white);
     max-width: 820px;
     margin-bottom: 24px;
   }
@@ -145,7 +157,7 @@
 
   .hero-sub {
     font-size: clamp(16px, 2vw, 20px);
-    color: var(--ink-light);
+    color: var(--violet-light);
     max-width: 540px;
     margin-bottom: 48px;
     line-height: 1.6;
@@ -158,7 +170,7 @@
     border-radius: 36px;
     object-fit: cover;
     animation: bob 3s ease-in-out infinite;
-    box-shadow: 0 16px 48px rgba(232,160,32,0.25);
+    box-shadow: 0 16px 48px rgba(245,158,11,0.25);
   }
 
   @keyframes bob {
@@ -168,7 +180,7 @@
 
   /* HERO CTA BUTTON */
   .hero-cta-btn {
-    background: var(--ink);
+    background: linear-gradient(135deg,var(--violet),var(--violet-dark));
     color: var(--white);
     font-size: 16px;
     font-weight: 600;
@@ -180,19 +192,19 @@
     transition: background 0.2s, transform 0.1s;
     margin-bottom: 12px;
   }
-  .hero-cta-btn:hover { background: var(--brown); }
+  .hero-cta-btn:hover { background: var(--indigo-mid); }
   .hero-cta-btn:active { transform: scale(0.98); }
 
   .waitlist-note {
     font-size: 13px;
-    color: var(--ink-light);
+    color: var(--violet-light);
     margin-top: 8px;
   }
 
   .success-msg {
     display: none;
-    background: var(--green-pale);
-    color: var(--green);
+    background: rgba(16,185,129,0.1);
+    color: var(--mint);
     border: 1px solid rgba(58,107,74,0.2);
     padding: 14px 24px;
     border-radius: 10px;
@@ -226,14 +238,14 @@
     font-weight: 700;
     line-height: 1.1;
     letter-spacing: -1px;
-    color: var(--ink);
+    color: var(--white);
     max-width: 600px;
     margin-bottom: 16px;
   }
 
   .section-sub {
     font-size: 17px;
-    color: var(--ink-light);
+    color: var(--violet-light);
     max-width: 500px;
     margin-bottom: 56px;
     line-height: 1.65;
@@ -246,28 +258,28 @@
   }
 
   .card {
-    background: var(--white);
-    border: 1px solid rgba(123,79,46,0.1);
+    background: rgba(45,27,105,0.4);
+    border: 1px solid rgba(124,58,237,0.25);
     border-radius: var(--radius);
     padding: 32px;
     position: relative;
     overflow: hidden;
     transition: transform 0.2s, box-shadow 0.2s;
   }
-  .card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(123,79,46,0.1); }
+  .card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(124,58,237,0.1); }
 
   .card-accent { position: absolute; top: 0; left: 0; right: 0; height: 4px; }
-  .card-accent-amber { background: var(--amber); }
-  .card-accent-brown { background: var(--brown-light); }
-  .card-accent-green { background: var(--green); }
+  .card-accent-amber { background: var(--violet); }
+  .card-accent-brown { background: var(--mint); }
+  .card-accent-green { background: var(--mint-dark); }
 
   .card-icon { font-size: 36px; margin-bottom: 18px; display: block; }
-  .card-who { font-size: 11px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: var(--ink-light); margin-bottom: 8px; }
-  .card h3 { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 600; color: var(--ink); margin-bottom: 12px; line-height: 1.2; }
-  .card p { font-size: 15px; color: var(--ink-light); line-height: 1.65; }
+  .card-who { font-size: 11px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; color: var(--violet-light); margin-bottom: 8px; }
+  .card h3 { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 600; color: var(--white); margin-bottom: 12px; line-height: 1.2; }
+  .card p { font-size: 15px; color: var(--violet-light); line-height: 1.65; }
 
   /* PROBLEM STRIP */
-  .problem-strip { background: var(--ink); padding: 80px 24px; }
+  .problem-strip { background: var(--indigo-mid); padding: 80px 24px; }
   .problem-inner { max-width: 900px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
   .problem-inner h2 { font-family: 'Fraunces', serif; font-size: clamp(28px, 3.5vw, 44px); font-weight: 700; color: var(--white); line-height: 1.15; letter-spacing: -1px; }
   .problem-inner h2 em { font-style: italic; color: var(--amber); }
@@ -279,14 +291,14 @@
   /* HOW IT WORKS */
   .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 32px; }
   .step { text-align: center; padding: 20px; }
-  .step-num { width: 44px; height: 44px; background: var(--amber-pale); border: 2px solid var(--amber); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Fraunces', serif; font-weight: 700; font-size: 18px; color: var(--brown); margin: 0 auto 16px; }
-  .step h4 { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
-  .step p { font-size: 14px; color: var(--ink-light); line-height: 1.6; }
+  .step-num { width: 44px; height: 44px; background: rgba(124,58,237,0.1); border: 2px solid var(--violet-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Fraunces', serif; font-weight: 700; font-size: 18px; color: var(--violet-light); margin: 0 auto 16px; }
+  .step h4 { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 600; color: var(--white); margin-bottom: 8px; }
+  .step p { font-size: 14px; color: var(--violet-light); line-height: 1.6; }
 
   /* BOTTOM CTA */
-  .bottom-cta { background: var(--amber-pale); border-top: 1px solid rgba(232,160,32,0.2); padding: 100px 24px; text-align: center; }
-  .bottom-cta h2 { font-family: 'Fraunces', serif; font-size: clamp(32px, 4vw, 52px); font-weight: 700; color: var(--ink); letter-spacing: -1px; margin-bottom: 16px; line-height: 1.1; }
-  .bottom-cta p { font-size: 17px; color: var(--ink-light); margin-bottom: 40px; }
+  .bottom-cta { background: linear-gradient(160deg, var(--indigo) 0%, var(--indigo-mid) 100%); border-top: 1px solid rgba(124,58,237,0.3); padding: 100px 24px; text-align: center; }
+  .bottom-cta h2 { font-family: 'Fraunces', serif; font-size: clamp(32px, 4vw, 52px); font-weight: 700; color: var(--white); letter-spacing: -1px; margin-bottom: 16px; line-height: 1.1; }
+  .bottom-cta p { font-size: 17px; color: var(--violet-light); margin-bottom: 40px; }
 
   /* FOOTER */
   footer { background: var(--ink); padding: 32px 40px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
@@ -299,8 +311,8 @@
     position: fixed;
     inset: 0;
     z-index: 1000;
-    background: rgba(30,23,18,0.6);
-    backdrop-filter: blur(4px);
+    background: rgba(15,23,42,0.85);
+    backdrop-filter: blur(8px);
     align-items: center;
     justify-content: center;
     padding: 20px;
@@ -308,7 +320,8 @@
   .modal-overlay.open { display: flex; }
 
   .modal {
-    background: var(--white);
+    background: var(--indigo-deep);
+    border: 1px solid rgba(124,58,237,0.3);
     border-radius: 20px;
     padding: 40px;
     max-width: 560px;
@@ -316,7 +329,7 @@
     max-height: 90vh;
     overflow-y: auto;
     position: relative;
-    box-shadow: 0 32px 80px rgba(30,23,18,0.25);
+    box-shadow: 0 32px 80px rgba(0,0,0,0.5);
   }
 
   .modal-close {
@@ -325,14 +338,14 @@
     background: none;
     border: none;
     font-size: 24px;
-    color: var(--ink-light);
+    color: var(--violet-light);
     cursor: pointer;
     line-height: 1;
     padding: 4px 8px;
     border-radius: 6px;
     transition: background 0.15s;
   }
-  .modal-close:hover { background: var(--cream); }
+  .modal-close:hover { background: var(--bg-page); }
 
   .modal-logo {
     display: flex;
@@ -341,20 +354,20 @@
     margin-bottom: 24px;
   }
   .modal-logo img { width: 36px; height: 36px; border-radius: 10px; object-fit: cover; }
-  .modal-logo span { font-family: 'Fraunces', serif; font-weight: 700; font-size: 18px; color: var(--ink); }
+  .modal-logo span { font-family: 'Fraunces', serif; font-weight: 700; font-size: 18px; color: var(--white); }
 
   .modal h2 {
     font-family: 'Fraunces', serif;
     font-size: 26px;
     font-weight: 700;
-    color: var(--ink);
+    color: var(--white);
     line-height: 1.15;
     margin-bottom: 6px;
   }
 
   .modal-sub {
     font-size: 14px;
-    color: var(--ink-light);
+    color: var(--violet-light);
     margin-bottom: 28px;
     line-height: 1.5;
   }
@@ -369,11 +382,11 @@
     height: 4px;
     flex: 1;
     border-radius: 2px;
-    background: rgba(123,79,46,0.15);
+    background: rgba(124,58,237,0.15);
     transition: background 0.3s;
   }
-  .modal-progress-step.active { background: var(--amber); }
-  .modal-progress-step.done { background: var(--green); }
+  .modal-progress-step.active { background: var(--violet); }
+  .modal-progress-step.done { background: var(--mint-dark); }
 
   /* FORM FIELDS */
   .form-group { margin-bottom: 18px; }
@@ -381,7 +394,7 @@
     display: block;
     font-size: 13px;
     font-weight: 600;
-    color: var(--ink-mid);
+    color: var(--gray-200);
     margin-bottom: 6px;
     letter-spacing: 0.2px;
   }
@@ -394,20 +407,20 @@
   .field-textarea {
     width: 100%;
     padding: 11px 14px;
-    border: 1.5px solid rgba(123,79,46,0.2);
+    border: 1.5px solid rgba(124,58,237,0.2);
     border-radius: 10px;
     font-size: 14px;
     font-family: 'Inter', sans-serif;
-    background: var(--white);
-    color: var(--ink);
+    background: rgba(45,27,105,0.4);
+    color: var(--white);
     outline: none;
     transition: border-color 0.2s;
   }
   .field-input:focus,
   .field-select:focus,
-  .field-textarea:focus { border-color: var(--amber); }
+  .field-textarea:focus { border-color: var(--violet-light); }
   .field-input::placeholder,
-  .field-textarea::placeholder { color: var(--ink-light); }
+  .field-textarea::placeholder { color: rgba(167,139,250,0.5); }
   .field-select { cursor: pointer; }
   .field-textarea { resize: vertical; min-height: 80px; line-height: 1.5; }
 
@@ -423,18 +436,18 @@
     align-items: center;
     gap: 10px;
     padding: 12px 16px;
-    border: 1.5px solid rgba(123,79,46,0.2);
+    border: 1.5px solid rgba(124,58,237,0.2);
     border-radius: 10px;
     cursor: pointer;
     transition: border-color 0.2s, background 0.2s;
     font-size: 14px;
     font-weight: 500;
-    color: var(--ink-mid);
+    color: var(--gray-200);
   }
   .role-pill input[type="radio"]:checked + label {
-    border-color: var(--amber);
-    background: var(--amber-pale);
-    color: var(--ink);
+    border-color: var(--violet-light);
+    background: rgba(124,58,237,0.25);
+    color: var(--white);
   }
   .role-pill label .pill-icon { font-size: 20px; }
 
@@ -446,21 +459,21 @@
     align-items: center;
     gap: 10px;
     padding: 10px 14px;
-    border: 1.5px solid rgba(123,79,46,0.15);
+    border: 1.5px solid rgba(124,58,237,0.15);
     border-radius: 8px;
     cursor: pointer;
     font-size: 14px;
-    color: var(--ink-mid);
+    color: var(--gray-200);
     transition: border-color 0.2s, background 0.2s;
   }
   .check-item input[type="checkbox"]:checked + label {
-    border-color: var(--amber);
-    background: var(--amber-pale);
-    color: var(--ink);
+    border-color: var(--mint);
+    background: rgba(16,185,129,0.1);
+    color: var(--white);
   }
   .check-box {
     width: 18px; height: 18px;
-    border: 2px solid rgba(123,79,46,0.3);
+    border: 2px solid rgba(124,58,237,0.3);
     border-radius: 4px;
     display: flex; align-items: center; justify-content: center;
     flex-shrink: 0;
@@ -468,8 +481,8 @@
     font-size: 11px;
   }
   .check-item input[type="checkbox"]:checked + label .check-box {
-    background: var(--amber);
-    border-color: var(--amber);
+    background: var(--mint);
+    border-color: var(--mint);
     color: white;
   }
 
@@ -491,17 +504,17 @@
 
   .btn-back {
     padding: 12px 24px;
-    border: 1.5px solid rgba(123,79,46,0.2);
+    border: 1.5px solid rgba(124,58,237,0.2);
     border-radius: 10px;
     background: none;
     font-size: 14px;
     font-weight: 600;
     font-family: 'Inter', sans-serif;
-    color: var(--ink-mid);
+    color: var(--gray-200);
     cursor: pointer;
     transition: background 0.2s;
   }
-  .btn-back:hover { background: var(--cream); }
+  .btn-back:hover { background: var(--bg-page); }
 
   .btn-next, .btn-submit {
     padding: 12px 28px;
@@ -516,9 +529,9 @@
     transition: background 0.2s, transform 0.1s;
     flex: 1;
   }
-  .btn-next:hover, .btn-submit:hover { background: var(--brown); }
+  .btn-next:hover, .btn-submit:hover { background: var(--indigo-mid); }
   .btn-next:active, .btn-submit:active { transform: scale(0.98); }
-  .btn-submit { background: var(--green); }
+  .btn-submit { background: var(--mint-dark); }
   .btn-submit:hover { background: #2d5439; }
 
   /* MODAL SUCCESS */
@@ -529,8 +542,8 @@
   }
   .modal-success.visible { display: block; }
   .success-icon { font-size: 64px; margin-bottom: 20px; }
-  .modal-success h3 { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 700; color: var(--ink); margin-bottom: 12px; }
-  .modal-success p { font-size: 15px; color: var(--ink-light); line-height: 1.6; max-width: 380px; margin: 0 auto; }
+  .modal-success h3 { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 700; color: var(--white); margin-bottom: 12px; }
+  .modal-success p { font-size: 15px; color: var(--violet-light); line-height: 1.6; max-width: 380px; margin: 0 auto; }
 
   /* RESPONSIVE */
   @media (max-width: 700px) {
@@ -552,7 +565,7 @@
   /* ===================== SCREENSHOTS SECTION ===================== */
   .screenshots-section {
     padding: 100px 24px;
-    background: var(--ink);
+    background: var(--indigo-deep);
     overflow: hidden;
   }
 
@@ -569,7 +582,7 @@
   }
 
   .screenshots-section .section-sub {
-    color: rgba(255,255,255,0.55);
+    color: rgba(167,139,250,0.85);
     max-width: 520px;
     margin-bottom: 60px;
   }
@@ -659,7 +672,7 @@
   /* ===================== ABOUT SECTION ===================== */
   .about-section {
     padding: 100px 24px;
-    background: var(--cream);
+    background: var(--bg-page);
   }
 
   .about-inner {
@@ -680,12 +693,12 @@
 
   .about-body {
     font-size: 16px;
-    color: var(--ink-mid);
+    color: var(--gray-200);
     line-height: 1.75;
     margin-bottom: 20px;
   }
 
-  .about-body strong { color: var(--ink); font-weight: 600; }
+  .about-body strong { color: var(--white); font-weight: 600; }
 
   .about-founder {
     display: flex;
@@ -694,14 +707,14 @@
     margin-top: 32px;
     padding: 20px;
     background: var(--white);
-    border: 1px solid rgba(123,79,46,0.1);
+    border: 1px solid rgba(124,58,237,0.1);
     border-radius: var(--radius);
   }
 
   .about-founder-avatar {
     width: 52px; height: 52px;
     border-radius: 50%;
-    background: var(--amber-pale);
+    background: rgba(124,58,237,0.1);
     border: 2px solid var(--amber);
     display: flex; align-items: center; justify-content: center;
     font-size: 22px;
@@ -711,13 +724,13 @@
   .about-founder-name {
     font-weight: 700;
     font-size: 15px;
-    color: var(--ink);
+    color: var(--white);
     margin-bottom: 2px;
   }
 
   .about-founder-title {
     font-size: 13px;
-    color: var(--ink-light);
+    color: var(--violet-light);
     line-height: 1.4;
   }
 
@@ -741,7 +754,7 @@
     content: '';
     position: absolute;
     width: 300px; height: 300px;
-    background: var(--amber);
+    background: var(--violet);
     opacity: 0.06;
     border-radius: 50%;
     top: -100px; right: -80px;
@@ -751,7 +764,7 @@
     width: 100px; height: 100px;
     border-radius: 24px;
     object-fit: cover;
-    box-shadow: 0 12px 32px rgba(232,160,32,0.3);
+    box-shadow: 0 12px 32px rgba(245,158,11,0.3);
     margin: 0 auto 16px;
     display: block;
     animation: bob 3s ease-in-out infinite;
@@ -779,7 +792,7 @@
 
   .about-stat {
     background: var(--white);
-    border: 1px solid rgba(123,79,46,0.1);
+    border: 1px solid rgba(124,58,237,0.1);
     border-radius: 12px;
     padding: 18px;
     text-align: center;
@@ -796,7 +809,7 @@
 
   .about-stat-label {
     font-size: 12px;
-    color: var(--ink-light);
+    color: var(--violet-light);
     line-height: 1.4;
   }
 
@@ -846,6 +859,84 @@
     <div class="success-msg" id="heroSuccessMsg">🎉 You're on the list! We'll be in touch soon.</div>
   </div>
 </section>
+
+<!-- ABOUT SECTION -->
+<section class="about-section">
+  <div class="about-inner">
+    <div class="about-content">
+      <p class="section-eyebrow">Our story</p>
+      <h2 class="section-title">Built by parents who've lived it.</h2>
+
+      <p class="about-body">
+        Like a lot of families, we tried everything.
+      </p>
+      <p class="about-body">
+        Our daughter Zoe is 15 and has ADHD. For years we chased teachers over email, sat with Zoe at the kitchen table trying to piece together what was due and when, and watched her shut down — hiding assignments she'd missed, overwhelmed by the gap between what she knew she <em>should</em> be doing and what she could actually face doing. The shame of falling behind made the falling behind worse.
+      </p>
+      <p class="about-body">
+        The problem was never Zoe. Kids with ADHD <em>want</em> to do the work — they're not lazy, they're not defiant. They just struggle to get started. And once something is out of sight, it's genuinely out of mind. An assignment buried in an email or a portal they haven't opened in three days might as well not exist.
+      </p>
+      <p class="about-body">
+        Everyone who needed to be on the same page — Zoe, us, her teachers — was working in isolation. Teachers didn't know what we knew at home. We didn't know what teachers were seeing at school. And Zoe was stuck in the middle, drowning quietly.
+      </p>
+      <p class="about-body">
+        <strong>Kim</strong> said it first: <em>"there has to be a better way — one place where we can all see what needs to be done, without it becoming another thing to manage."</em> When that app didn't exist, she turned to Steve and said: <em>"build it."</em>
+      </p>
+      <p class="about-body">
+        FocablyED is that place. Not another homework tracker. Not another parent portal that teachers ignore. A shared view — gamified for students, clear for parents, effortless for teachers — so nothing falls through the cracks and nobody has to feel ashamed for needing a little more support.
+      </p>
+      <p class="about-body">
+        The mascot — a squirrel 🐿️ — was named by Zoe herself, inspired by Doug the dog from Pixar's UP (<em>"SQUIRREL!"</em>). If you know, you know.
+      </p>
+
+      <div class="about-founder" style="margin-bottom:12px;">
+        <div class="about-founder-avatar">👩‍👧</div>
+        <div>
+          <div class="about-founder-name">Kim Thomas</div>
+          <div class="about-founder-title">Co-founder, FocablyED · The idea person · Mum of two · Brisbane, QLD</div>
+        </div>
+      </div>
+      <div class="about-founder">
+        <div class="about-founder-avatar">👨‍💼</div>
+        <div>
+          <div class="about-founder-name">Steve Thomas</div>
+          <div class="about-founder-title">Co-founder, FocablyED · Doer of things · Builder of stuff · Brisbane, QLD</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-visual">
+      <div class="about-squirrel-card">
+        <img class="about-squirrel-img"
+             src="https://raw.githubusercontent.com/stevothomo99-cpu/focably/main/squirrel.png"
+             alt="FocablyED mascot squirrel">
+        <div class="about-squirrel-name">Meet our mascot 🐿️</div>
+        <div class="about-squirrel-sub">Named by Zoe, 15 — inspired by Doug from Pixar's UP.<br>Because sometimes focus is the whole battle.</div>
+      </div>
+
+      <div class="about-stat-row">
+        <div class="about-stat">
+          <div class="about-stat-num">1 in 7</div>
+          <div class="about-stat-label">students affected by ADHD or time blindness</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">3-way</div>
+          <div class="about-stat-label">connection — student, parent and teacher</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">Free</div>
+          <div class="about-stat-label">to get started — no credit card needed</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-num">🇦🇺</div>
+          <div class="about-stat-label">Built in Brisbane for Australian classrooms</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 
 <!-- THREE-WAY -->
 <section class="section">
@@ -990,83 +1081,6 @@
     </div>
   </div>
 </div>
-
-<!-- ABOUT SECTION -->
-<section class="about-section">
-  <div class="about-inner">
-    <div class="about-content">
-      <p class="section-eyebrow">Our story</p>
-      <h2 class="section-title">Built by parents who've lived it.</h2>
-
-      <p class="about-body">
-        Like a lot of families, we tried everything.
-      </p>
-      <p class="about-body">
-        Our daughter Zoe is 15 and has ADHD. For years we chased teachers over email, sat with Zoe at the kitchen table trying to piece together what was due and when, and watched her shut down — hiding assignments she'd missed, overwhelmed by the gap between what she knew she <em>should</em> be doing and what she could actually face doing. The shame of falling behind made the falling behind worse.
-      </p>
-      <p class="about-body">
-        The problem was never Zoe. Kids with ADHD <em>want</em> to do the work — they're not lazy, they're not defiant. They just struggle to get started. And once something is out of sight, it's genuinely out of mind. An assignment buried in an email or a portal they haven't opened in three days might as well not exist.
-      </p>
-      <p class="about-body">
-        Everyone who needed to be on the same page — Zoe, us, her teachers — was working in isolation. Teachers didn't know what we knew at home. We didn't know what teachers were seeing at school. And Zoe was stuck in the middle, drowning quietly.
-      </p>
-      <p class="about-body">
-        <strong>Kim</strong> said it first: <em>"there has to be a better way — one place where we can all see what needs to be done, without it becoming another thing to manage."</em> When that app didn't exist, she turned to Steve and said: <em>"build it."</em>
-      </p>
-      <p class="about-body">
-        FocablyED is that place. Not another homework tracker. Not another parent portal that teachers ignore. A shared view — gamified for students, clear for parents, effortless for teachers — so nothing falls through the cracks and nobody has to feel ashamed for needing a little more support.
-      </p>
-      <p class="about-body">
-        The mascot — a squirrel 🐿️ — was named by Zoe herself, inspired by Doug the dog from Pixar's UP (<em>"SQUIRREL!"</em>). If you know, you know.
-      </p>
-
-      <div class="about-founder" style="margin-bottom:12px;">
-        <div class="about-founder-avatar">👩‍👧</div>
-        <div>
-          <div class="about-founder-name">Kim Thomas</div>
-          <div class="about-founder-title">Co-founder, FocablyED · The idea person · Mum of two · Brisbane, QLD</div>
-        </div>
-      </div>
-      <div class="about-founder">
-        <div class="about-founder-avatar">👨‍💼</div>
-        <div>
-          <div class="about-founder-name">Steve Thomas</div>
-          <div class="about-founder-title">Co-founder, FocablyED · Doer of things · Builder of stuff · Brisbane, QLD</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="about-visual">
-      <div class="about-squirrel-card">
-        <img class="about-squirrel-img"
-             src="https://raw.githubusercontent.com/stevothomo99-cpu/focably/main/squirrel.png"
-             alt="FocablyED mascot squirrel">
-        <div class="about-squirrel-name">Meet our mascot 🐿️</div>
-        <div class="about-squirrel-sub">Named by Zoe, 15 — inspired by Doug from Pixar's UP.<br>Because sometimes focus is the whole battle.</div>
-      </div>
-
-      <div class="about-stat-row">
-        <div class="about-stat">
-          <div class="about-stat-num">1 in 7</div>
-          <div class="about-stat-label">students affected by ADHD or time blindness</div>
-        </div>
-        <div class="about-stat">
-          <div class="about-stat-num">3-way</div>
-          <div class="about-stat-label">connection — student, parent and teacher</div>
-        </div>
-        <div class="about-stat">
-          <div class="about-stat-num">Free</div>
-          <div class="about-stat-label">to get started — no credit card needed</div>
-        </div>
-        <div class="about-stat">
-          <div class="about-stat-num">🇦🇺</div>
-          <div class="about-stat-label">Built in Brisbane for Australian classrooms</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 
 <!-- BOTTOM CTA -->
 <section class="bottom-cta">
