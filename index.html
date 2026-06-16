@@ -576,7 +576,76 @@
 
   .screenshots-section .section-eyebrow { color: var(--amber-light); }
 
-  .screenshots-section .section-title {
+  .ai-features-section {
+  padding: 80px 24px;
+  background: linear-gradient(135deg, #0F0A1E 0%, #1E1B4B 50%, #2D1B69 100%);
+}
+.ai-features-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+.ai-features-section .section-eyebrow {
+  color: #A78BFA;
+}
+.ai-features-section .section-title {
+  color: white;
+}
+.ai-features-section .section-sub {
+  color: rgba(255,255,255,0.7);
+}
+.ai-feat-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin-top: 40px;
+}
+@media(min-width: 640px) {
+  .ai-feat-grid { grid-template-columns: repeat(3, 1fr); }
+}
+.ai-feat-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px;
+  padding: 28px 24px;
+  transition: transform 0.2s, background 0.2s;
+}
+.ai-feat-card:hover {
+  transform: translateY(-3px);
+  background: rgba(255,255,255,0.1);
+}
+.ai-feat-icon {
+  font-size: 40px;
+  margin-bottom: 16px;
+  display: block;
+}
+.ai-feat-card h3 {
+  font-family: "Nunito", sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  color: white;
+  margin-bottom: 10px;
+}
+.ai-feat-card p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.6;
+  margin: 0;
+}
+.ai-feat-badge {
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.ai-feat-badge.adhd { background: rgba(167,139,250,0.2); color: #A78BFA; }
+.ai-feat-badge.pro { background: rgba(245,158,11,0.2); color: #FCD34D; }
+.ai-feat-badge.all { background: rgba(16,185,129,0.2); color: #6EE7B7; }
+
+.screenshots-section .section-title {
     color: var(--white);
     max-width: 700px;
   }
@@ -1018,6 +1087,60 @@
   </div>
 </section>
 
+
+<!-- AI FEATURES SECTION -->
+<div class="ai-features-section">
+  <div class="ai-features-inner">
+    <p class="section-eyebrow">Powered by AI</p>
+    <h2 class="section-title">Built for the ADHD brain.</h2>
+    <p class="section-sub">Not another app that makes you organise yourself first. FocablyED meets students where they are — messy thoughts, full minds, and all.</p>
+    <div class="ai-feat-grid">
+
+      <div class="ai-feat-card">
+        <span class="ai-feat-badge adhd">🧠 ADHD-first</span>
+        <span class="ai-feat-icon">🧠</span>
+        <h3>Brain Dump</h3>
+        <p>Type or speak everything on your mind — assignments, deadlines, worries, random thoughts. Our AI sorts it into a clean task list automatically. No structure required.</p>
+      </div>
+
+      <div class="ai-feat-card">
+        <span class="ai-feat-badge all">✨ For everyone</span>
+        <span class="ai-feat-icon">✨</span>
+        <h3>AI Task Breakdown</h3>
+        <p>Staring at a big assignment and not knowing where to start? One tap breaks any task into small, manageable steps. The hardest part is starting — we make that easy.</p>
+      </div>
+
+      <div class="ai-feat-card">
+        <span class="ai-feat-badge pro">⭐ Smart import</span>
+        <span class="ai-feat-icon">📥</span>
+        <h3>Smart Import</h3>
+        <p>Got an assignment in Teams, email, or a screenshot? Paste it in. FocablyED extracts the title, subject, due date and steps automatically — no retyping, no copy-paste chaos.</p>
+      </div>
+
+      <div class="ai-feat-card">
+        <span class="ai-feat-badge adhd">🎨 ADHD-first</span>
+        <span class="ai-feat-icon">🎨</span>
+        <h3>Themes &amp; Personalisation</h3>
+        <p>Switching themes gives a dopamine hit that brings students back to the app. Ancient Lightning, Midnight, Soft Hour — pick your vibe. ADHD engagement through identity ownership.</p>
+      </div>
+
+      <div class="ai-feat-card">
+        <span class="ai-feat-badge all">🔗 Connected</span>
+        <span class="ai-feat-icon">🟦</span>
+        <h3>Microsoft Teams Import</h3>
+        <p>Students and teachers can connect their Microsoft account and pull assignments directly from Teams — no copy-paste, no missed deadlines from a buried notification.</p>
+      </div>
+
+      <div class="ai-feat-card">
+        <span class="ai-feat-badge all">🏆 Gamified</span>
+        <span class="ai-feat-icon">🏆</span>
+        <h3>Stars, XP &amp; Rewards</h3>
+        <p>Every completed task earns stars and XP. Parents set rewards students actually want. Teachers give shoutouts. Progress feels real — because it is.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 <!-- SCREENSHOTS SECTION -->
 <div class="screenshots-section">
