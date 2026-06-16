@@ -1582,24 +1582,48 @@
         roleData.student_year ? 'Student year: ' + roleData.student_year : ''
       ].filter(Boolean).join(' | ');
 
-      await fetch('https://api.hubapi.com/crm/v3/objects/contacts', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + HUBSPOT_TOKEN
-        },
-        body: JSON.stringify({ properties: {
-          email: email,
-          firstname: firstname,
-          phone: phone || '',
-          jobtitle: role,
-          company: roleData.school_name || '',
-          state: roleData.state || '',
-          lifecyclestage: 'lead',
-          hs_lead_status: 'NEW',
-          hs_content_membership_notes: richNotes
-        }})
-      }).catch(() => {}); // Non-blocking — Supabase is source of truth
+      // HubSpot Contacts API — with proper error logging
+      try {
+        const hsRes = await fetch('https://api.hubapi.com/crm/v3/objects/contacts', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + HUBSPOT_TOKEN
+          },
+          body: JSON.stringify({ properties: {
+            email: email,
+            firstname: firstname,
+            phone: phone || '',
+            jobtitle: role,
+            company: roleData.school_name || '',
+            hs_lead_status: 'NEW',
+            lifecyclestage: 'lead',
+            description: richNotes
+          }})
+        });
+        if (!hsRes.ok) {
+          const hsErr = await hsRes.json().catch(() => ({}));
+          console.warn('HubSpot contact create failed:', hsRes.status, JSON.stringify(hsErr));
+          // If contact already exists (409), try to update it instead
+          if (hsRes.status === 409) {
+            const existingId = hsErr.message?.match(/ID: (\d+)/)?.[1];
+            if (existingId) {
+              await fetch(`https://api.hubapi.com/crm/v3/objects/contacts/${existingId}`, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + HUBSPOT_TOKEN },
+                body: JSON.stringify({ properties: { hs_lead_status: 'NEW', description: richNotes, jobtitle: role }})
+              });
+              console.log('HubSpot contact updated (existed):', existingId);
+            }
+          }
+        } else {
+          const hsData = await hsRes.json();
+          console.log('✅ HubSpot contact created:', hsData.id);
+        }
+      } catch(hsEx) {
+        console.warn('HubSpot write exception:', hsEx.message);
+        // Non-blocking — Supabase is source of truth
+      }
 
       // Show success
       document.getElementById('modalProgress').style.display = 'none';
