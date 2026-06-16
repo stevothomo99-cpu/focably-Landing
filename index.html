@@ -1592,12 +1592,10 @@
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               fields: [
-                { objectTypeId: '0-1', name: 'email',     value: email },
-                { objectTypeId: '0-1', name: 'firstname', value: firstname },
-                { objectTypeId: '0-1', name: 'phone',     value: phone || '' },
-                { objectTypeId: '0-1', name: 'jobtitle',  value: role },
-                { objectTypeId: '0-1', name: 'company',   value: roleData.school_name || '' },
-                { objectTypeId: '0-1', name: 'message',   value: richNotes }
+                { objectTypeId: '0-1', name: 'email',       value: email },
+                { objectTypeId: '0-1', name: 'firstname',   value: firstname },
+                { objectTypeId: '0-1', name: 'mobilephone', value: phone || '' },
+                { objectTypeId: '0-1', name: 'message',     value: richNotes }
               ],
               context: {
                 pageUri: window.location.href,
