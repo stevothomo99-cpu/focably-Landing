@@ -1656,6 +1656,12 @@
     const phone = document.getElementById('f_phone').value.trim();
     const roleData = getRoleData(role);
 
+    // Validate source
+    if (!source) {
+      alert('Please let us know how you heard about FocablyED.');
+      return;
+    }
+
     // Validate mobile
     if (!phone || phone.length < 8) {
       alert('Please enter a valid mobile number.');
