@@ -1709,7 +1709,7 @@
       fetch('https://mxgnrgajspprupzxaeld.supabase.co/functions/v1/hubspot-sync', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY },
-        body: JSON.stringify({ email, firstname, phone: phone || '', role, richNotes })
+        body: JSON.stringify({ email, firstname, phone: phone || '', role, richNotes, challenge, interests, source, roleData })
       }).then(r => r.json()).then(d => console.log('HubSpot sync:', d)).catch(e => console.warn('HubSpot sync error:', e.message));
 
       // Show success
