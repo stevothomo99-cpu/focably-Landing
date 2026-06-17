@@ -1532,7 +1532,7 @@
 
       <div class="form-group">
         <label>Phone number <span style="color:var(--ink-light);font-weight:400;">(optional — for early access calls)</span></label>
-        <input class="field-input" type="tel" id="f_phone" placeholder="e.g. 0412 345 678">
+        <input class="field-input" type="tel" id="f_phone" placeholder="e.g. 0412 345 678" required>
       </div>
 
       <div class="modal-actions">
@@ -1655,6 +1655,12 @@
     const source = document.getElementById('f_source').value;
     const phone = document.getElementById('f_phone').value.trim();
     const roleData = getRoleData(role);
+
+    // Validate mobile
+    if (!phone || phone.length < 8) {
+      alert('Please enter a valid mobile number.');
+      return;
+    }
 
     btn.textContent = 'Submitting…';
     btn.disabled = true;
