@@ -1705,37 +1705,45 @@
         roleData.student_year ? 'Student year: ' + roleData.student_year : ''
       ].filter(Boolean).join(' | ');
 
-      // HubSpot Forms API — CORS-friendly, no token needed
-      // Portal: 443338489 | Form: 5c3fa795-22d4-4023-a28d-efa8340705bc
+      // HubSpot direct Contacts API via Service Key
       try {
-        const hsFormRes = await fetch(
-          'https://api.hsforms.com/submissions/v3/integration/submit/443338489/5c3fa795-22d4-4023-a28d-efa8340705bc',
-          {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              fields: [
-                { objectTypeId: '0-1', name: 'email',       value: email },
-                { objectTypeId: '0-1', name: 'firstname',   value: firstname },
-                { objectTypeId: '0-1', name: 'mobilephone', value: phone || '' },
-                { objectTypeId: '0-1', name: 'message',     value: richNotes }
-              ],
-              context: {
-                pageUri: window.location.href,
-                pageName: 'FocablyED Waitlist'
-              }
-            })
+        const hsRes = await fetch('https://api.hubapi.com/crm/v3/objects/contacts', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + HUBSPOT_TOKEN
+          },
+          body: JSON.stringify({
+            properties: {
+              email:          email,
+              firstname:      firstname,
+              mobilephone:    phone || '',
+              message:        richNotes,
+              hs_lead_status: 'NEW',
+              lifecyclestage: 'lead'
+            }
+          })
+        });
+        if (!hsRes.ok) {
+          const hsErr = await hsRes.json().catch(() => ({}));
+          if (hsRes.status === 409) {
+            const existingId = (hsErr.message || '').match(/ID: (\d+)/)?.[1];
+            if (existingId) {
+              await fetch('https://api.hubapi.com/crm/v3/objects/contacts/' + existingId, {
+                method: 'PATCH',
+                headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + HUBSPOT_TOKEN },
+                body: JSON.stringify({ properties: { mobilephone: phone || '', message: richNotes } })
+              });
+              console.log('HubSpot contact updated (existing)');
+            }
+          } else {
+            console.warn('HubSpot API failed:', hsRes.status, JSON.stringify(hsErr));
           }
-        );
-        if (!hsFormRes.ok) {
-          const hsErr = await hsFormRes.json().catch(() => ({}));
-          console.warn('HubSpot Forms API failed:', hsFormRes.status, JSON.stringify(hsErr));
         } else {
-          console.log('✅ HubSpot Forms submission success');
+          console.log('HubSpot contact created');
         }
       } catch(hsEx) {
-        console.warn('HubSpot Forms exception:', hsEx.message);
-        // Non-blocking — Supabase is source of truth
+        console.warn('HubSpot exception:', hsEx.message);
       }
 
       // Show success
