@@ -1705,79 +1705,12 @@
         roleData.student_year ? 'Student year: ' + roleData.student_year : ''
       ].filter(Boolean).join(' | ');
 
-      // HubSpot: Create Contact + Deal via Contacts API (Service Key)
-      try {
-        const hsHeaders = {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + HUBSPOT_TOKEN
-        };
-
-        // Step 1: Create or find contact
-        let contactId = null;
-        const hsContactRes = await fetch('https://api.hubapi.com/crm/v3/objects/contacts', {
-          method: 'POST',
-          headers: hsHeaders,
-          body: JSON.stringify({
-            properties: {
-              email:          email,
-              firstname:      firstname,
-              mobilephone:    phone || '',
-              message:        richNotes,
-              hs_lead_status: 'NEW',
-              lifecyclestage: 'lead'
-            }
-          })
-        });
-
-        if (hsContactRes.ok) {
-          const hsContact = await hsContactRes.json();
-          contactId = hsContact.id;
-          console.log('HubSpot contact created:', contactId);
-        } else if (hsContactRes.status === 409) {
-          // Contact exists — fetch their ID via search
-          const searchRes = await fetch('https://api.hubapi.com/crm/v3/objects/contacts/search', {
-            method: 'POST',
-            headers: hsHeaders,
-            body: JSON.stringify({
-              filterGroups: [{ filters: [{ propertyName: 'email', operator: 'EQ', value: email }] }],
-              properties: ['email', 'firstname']
-            })
-          });
-          const searchData = await searchRes.json();
-          contactId = searchData.results?.[0]?.id || null;
-          console.log('HubSpot contact exists:', contactId);
-        } else {
-          console.warn('HubSpot contact error:', hsContactRes.status);
-        }
-
-        // Step 2: Create Deal and associate with contact
-        if (contactId) {
-          const dealName = firstname + ' — FocablyED Waitlist (' + role + ')';
-          const hsDealRes = await fetch('https://api.hubapi.com/crm/v3/objects/deals', {
-            method: 'POST',
-            headers: hsHeaders,
-            body: JSON.stringify({
-              properties: {
-                dealname:   dealName,
-                pipeline:   'default',
-                dealstage:  'appointmentscheduled',
-                description: richNotes
-              },
-              associations: [{
-                to: { id: contactId },
-                types: [{ associationCategory: 'HUBSPOT_DEFINED', associationTypeId: 3 }]
-              }]
-            })
-          });
-          if (hsDealRes.ok) {
-            console.log('HubSpot deal created and linked to contact');
-          } else {
-            console.warn('HubSpot deal error:', hsDealRes.status);
-          }
-        }
-      } catch(hsEx) {
-        console.warn('HubSpot exception:', hsEx.message);
-      }
+      // HubSpot: fire-and-forget via Edge Function (avoids CORS)
+      fetch('https://mxgnrgajspprupzxaeld.supabase.co/functions/v1/hubspot-sync', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + SUPABASE_ANON_KEY },
+        body: JSON.stringify({ email, firstname, phone: phone || '', role, richNotes })
+      }).then(r => r.json()).then(d => console.log('HubSpot sync:', d)).catch(e => console.warn('HubSpot sync error:', e.message));
 
       // Show success
       document.getElementById('modalProgress').style.display = 'none';
